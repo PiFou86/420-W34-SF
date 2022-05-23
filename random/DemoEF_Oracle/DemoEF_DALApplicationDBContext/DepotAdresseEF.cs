@@ -29,6 +29,16 @@ namespace DemoEF_DALApplicationDBContext
             this.m_dbContext.ChangeTracker.Clear();
         }
 
+        public void Dispose()
+        {
+            ; // le contexte sera ici disposé par le dispose de la transaction
+        }
+
+        public Entite.Adresse? Obtenir(int p_id)
+        {
+            return this.m_dbContext.Adresses.Where(a => a.AdresseId == p_id).Select(a => a.VersEntite()).SingleOrDefault();
+        }
+
         public List<Entite.Adresse> RechercherAdresseParRequete(string p_partieNomVille)
         {
             if (p_partieNomVille is null)

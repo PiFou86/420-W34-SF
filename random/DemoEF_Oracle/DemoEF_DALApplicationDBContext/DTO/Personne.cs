@@ -9,11 +9,11 @@ namespace DemoEF_DALApplicationDBContext.DTO
     {
         [Key]
         [Column("PERSONNEID")]
-        public int PersonneId { get; set; }
+        public int PersonneId { get; set; } = 0;
         [Column("NOM")]
-        public string Nom { get; set; }
+        public string Nom { get; set; } = "";
         [Column("PRENOM")]
-        public string Prenom { get; set; }
+        public string Prenom { get; set; } = "";
 
         [Column("ADRESSEACTUELLEID")]
         public int? AdresseActuelleId { get; set; }

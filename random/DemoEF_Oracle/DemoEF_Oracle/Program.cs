@@ -1,33 +1,32 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using DemoEF_DALApplicationDBContext;
-using DemoEF_Entite;
+﻿using DemoEF_Entite;
 using DemoEF_Oracle;
-using Microsoft.EntityFrameworkCore.Storage;
+using DemoEF_CasUtilisation;
 
+IManipulationPersonneFactory manipulationPersonneFactory = new ManipulationPersonneFactory();
+
+// Projection de données de la BD
 DemoObtenirPersonnesSansAdresse();
 DemoObtenirPersonnesAvecAdresse();
 
+// Ajout de personnes (INSERT)
 DemoAjoutPersonneSansAdresse();
 DemoAjoutPersonneAvecAdresse();
 DemoAjoutPersonneAvecAdresseRollback();
 DemoObtenirPersonnesSansAdresse();
 
+// Appel de fonction SQL
 DemoRechercherAdressesContenantUnMot();
 
 void DemoObtenirPersonnesSansAdresse()
 {
     Console.Out.WriteLine("DemoObtenirPersonnesSansAdresse");
 
-    List<Personne>? personnesSansAdresse = null;
-    using (ApplicationDBContext dbContext = DALDbContextGeneration.ObtenirApplicationDBContext())
+    using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
-        IDepotPersonne depotPersonne = new DepotPersonneEF(dbContext);
+        List<Personne>? personnesSansAdresse = mp.ObtenirPersonnes(inclureAdresse: false);
 
-        personnesSansAdresse = depotPersonne.ObtenirPersonnes(inclureAdresse: false);
+        personnesSansAdresse?.ForEach(p => Console.Out.WriteLine(p));
     }
-
-    personnesSansAdresse?.ForEach(p => Console.Out.WriteLine(p));
     Console.Out.WriteLine();
 }
 
@@ -35,15 +34,12 @@ void DemoObtenirPersonnesAvecAdresse()
 {
     Console.Out.WriteLine("DemoObtenirPersonnesAvecAdresse");
 
-    List<Personne>? personnesAvecAdresse = null;
-    using (ApplicationDBContext dbContext = DALDbContextGeneration.ObtenirApplicationDBContext())
+    using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
-        IDepotPersonne depotPersonne = new DepotPersonneEF(dbContext);
+        List<Personne>? personnesSansAdresse = mp.ObtenirPersonnes(inclureAdresse: true);
 
-        personnesAvecAdresse = depotPersonne.ObtenirPersonnes(inclureAdresse: true);
+        personnesSansAdresse?.ForEach(p => Console.Out.WriteLine(p));
     }
-
-    personnesAvecAdresse?.ForEach(p => Console.Out.WriteLine(p));
     Console.Out.WriteLine();
 }
 
@@ -51,29 +47,11 @@ void DemoAjoutPersonneSansAdresse()
 {
     Console.Out.WriteLine("DemoAjoutPersonneSansAdresse");
 
-    using (ApplicationDBContext dbContext = DALDbContextGeneration.ObtenirApplicationDBContext())
+    Personne personneSansAdresse = GenerateurDonnees.GenererPersonne(p_inclureAdresse: false);
+    Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneSansAdresse.PersonneId}");
+    using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
-        IDepotPersonne depotPersonne = new DepotPersonneEF(dbContext);
-
-        using (IDbContextTransaction transaction = dbContext.Database.BeginTransaction())
-        {
-            try
-            {
-                Personne personneSansAdresse = GenerateurDonnees.GenererPersonne(false);
-
-                Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneSansAdresse.PersonneId}");
-                depotPersonne.AjouterPersonne(personneSansAdresse);
-
-                transaction.Commit();
-                Console.Out.WriteLine("Transaction confirmée !");
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                Console.Out.WriteLine("Transaction annulée !");
-                Console.Error.WriteLine(ex.Message);
-            }
-        }
+        mp.AjouterPersonne(personneSansAdresse);
     }
 
     Console.Out.WriteLine();
@@ -83,83 +61,58 @@ void DemoAjoutPersonneAvecAdresse()
 {
     Console.Out.WriteLine("DemoAjoutPersonneAvecAdresse");
 
-    using (ApplicationDBContext dbContext = DALDbContextGeneration.ObtenirApplicationDBContext())
+    Personne personneSansAdresse = GenerateurDonnees.GenererPersonne(p_inclureAdresse: true);
+    Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneSansAdresse.PersonneId}");
+    using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
-        IDepotAdresse depotAdresse = new DepotAdresseEF(dbContext);
-        IDepotPersonne depotPersonne = new DepotPersonneEF(dbContext);
-
-        using (IDbContextTransaction transaction = dbContext.Database.BeginTransaction())
-        {
-            try
-            {
-                Personne personneAvecAdresse = GenerateurDonnees.GenererPersonne(true);
-                Adresse? adresse = personneAvecAdresse.AdresseActuelle;
-                personneAvecAdresse.AdresseActuelle = null;
-
-                Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneAvecAdresse.PersonneId}");
-                depotPersonne.AjouterPersonne(personneAvecAdresse);
-                if (adresse is not null)
-                {
-                    depotAdresse.AjouterAdresse(adresse);
-                }
-                personneAvecAdresse.AdresseActuelle = adresse;
-                depotPersonne.MAJPersonne(personneAvecAdresse);
-
-                transaction.Commit();
-                Console.Out.WriteLine("Transaction confirmée !");
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                Console.Out.WriteLine("Transaction annulée !");
-                Console.Error.WriteLine(ex.Message);
-            }
-        }
+        mp.AjouterPersonne(personneSansAdresse);
     }
 
     Console.Out.WriteLine();
+    // using (ApplicationDBContext dbContext = DALDbContextGeneration.ObtenirApplicationDBContext())
+    // {
+    //     IDepotAdresse depotAdresse = new DepotAdresseEF(dbContext);
+    //     IDepotPersonne depotPersonne = new DepotPersonneEF(dbContext);
+
+    //     using (IDbContextTransaction transaction = dbContext.Database.BeginTransaction())
+    //     {
+    //         try
+    //         {
+    //             Personne personneAvecAdresse = GenerateurDonnees.GenererPersonne(true);
+    //             Adresse? adresse = personneAvecAdresse.AdresseActuelle;
+    //             personneAvecAdresse.AdresseActuelle = null;
+
+    //             Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneAvecAdresse.PersonneId}");
+    //             depotPersonne.AjouterPersonne(personneAvecAdresse);
+    //             if (adresse is not null)
+    //             {
+    //                 depotAdresse.AjouterAdresse(adresse);
+    //             }
+    //             personneAvecAdresse.AdresseActuelle = adresse;
+    //             depotPersonne.MAJPersonne(personneAvecAdresse);
+
+    //             transaction.Commit();
+    //             Console.Out.WriteLine("Transaction confirmée !");
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             transaction.Rollback();
+    //             Console.Out.WriteLine("Transaction annulée !");
+    //             Console.Error.WriteLine(ex.Message);
+    //         }
+    //     }
+    // }
 }
 
 void DemoAjoutPersonneAvecAdresseRollback()
 {
     Console.Out.WriteLine("DemoAjoutPersonneAvecAdresseRollback");
 
-    using (ApplicationDBContext dbContext = DALDbContextGeneration.ObtenirApplicationDBContext())
+    Personne personneSansAdresse = GenerateurDonnees.GenererPersonne(p_inclureAdresse: true);
+    Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneSansAdresse.PersonneId}");
+    using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
-        IDepotAdresse depotAdresse = new DepotAdresseEF(dbContext);
-        IDepotPersonne depotPersonne = new DepotPersonneEF(dbContext);
-
-        using (IDbContextTransaction transaction = dbContext.Database.BeginTransaction())
-        {
-            try
-            {
-                Personne personneAvecAdresse = GenerateurDonnees.GenererPersonne(true);
-                Adresse? adresse = personneAvecAdresse.AdresseActuelle;
-                personneAvecAdresse.AdresseActuelle = null;
-
-                Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneAvecAdresse.PersonneId}");
-                depotPersonne.AjouterPersonne(personneAvecAdresse);
-                if (adresse is not null)
-                {
-                    depotAdresse.AjouterAdresse(adresse);
-                }
-                personneAvecAdresse.AdresseActuelle = adresse;
-                depotPersonne.MAJPersonne(personneAvecAdresse);
-
-                Console.Out.WriteLine($"Personne qui va être annulée : {personneAvecAdresse.PersonneId} avec adresse : {adresse.AdresseId}");
-
-                throw new Exception("Simulation erreur !");
-
-                transaction.Commit();
-                Console.Out.WriteLine("Transaction confirmée !");
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                Console.Out.WriteLine("Transaction annulée !");
-                Console.Error.WriteLine(ex.Message);
-            }
-        }
+        mp.AjouterPersonne(personneSansAdresse);
     }
 
     Console.Out.WriteLine();
@@ -169,16 +122,14 @@ void DemoRechercherAdressesContenantUnMot()
 {
     Console.Out.WriteLine("DemoRechercherAdressesContenantUnMot");
 
-    using (ApplicationDBContext dbContext = DALDbContextGeneration.ObtenirApplicationDBContext())
+    using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
-        IDepotAdresse depotAdresse = new DepotAdresseEF(dbContext);
-
         Console.Out.WriteLine("RechercherAdresseParRequete");
-        List<Adresse> adressesParRequete = depotAdresse.RechercherAdresseParRequete("é");
+        List<Adresse> adressesParRequete = mp.RechercherAdresseParRequete("é");
         adressesParRequete.ForEach(a => Console.Out.WriteLine(a));
-        
+
         Console.Out.WriteLine("RechercherAdresseProcedureStockee");
-        List<Adresse> adressesParProcedureStockee = depotAdresse.RechercherAdresseProcedureStockee("é");
+        List<Adresse> adressesParProcedureStockee = mp.RechercherAdresseProcedureStockee("é");
         adressesParProcedureStockee.ForEach(a => Console.Out.WriteLine(a));
     }
 

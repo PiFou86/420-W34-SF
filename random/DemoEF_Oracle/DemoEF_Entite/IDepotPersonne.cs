@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoEF_Entite
 {
-    public interface IDepotPersonne
+    public interface IDepotPersonne : IDisposable
     {
         List<Personne> ObtenirPersonnes(bool inclureAdresse = false);
         void AjouterPersonne(Personne p_personne);

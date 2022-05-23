@@ -26,6 +26,13 @@ namespace DemoEF_DALApplicationDBContext
             this.m_dbContext.ChangeTracker.Clear();
         }
 
+
+        public void Dispose()
+        {
+            ; // le contexte sera ici disposé par le dispose de la transaction
+        }
+
+
         public void MAJPersonne(Entite.Personne p_personne)
         {
             Personne p = new Personne(p_personne);

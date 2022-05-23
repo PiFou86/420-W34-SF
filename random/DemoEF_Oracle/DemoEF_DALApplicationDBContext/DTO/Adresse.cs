@@ -14,15 +14,15 @@ namespace DemoEF_DALApplicationDBContext.DTO
     {
         [Key]
         [Column("ADRESSEID")]
-        public int AdresseId { get; set; }
+        public int AdresseId { get; set; } = 0;
         [Column("PERSONNEID")]
-        public int ProprietaireAdresseId { get; set; }
+        public int ProprietaireAdresseId { get; set; } = 0;
         [Column("NOCIVIQUE")]
-        public string NumeroCivique { get; set; }
+        public string NumeroCivique { get; set; } = "";
         [Column("ODONYME")]
-        public string Odonyme { get; set; }
+        public string Odonyme { get; set; } = "";
         [Column("VILLE")]
-        public string Ville { get; set; }
+        public string Ville { get; set; } = "";
 
         public Adresse()
         {

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DemoEF_DALApplicationDBContext\DemoEF_DALApplicationDBContext.csproj" />
+    <ProjectReference Include="..\DemoEF_CasUtilisation\DemoEF_CasUtilisation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,5 +17,4 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 </Project>

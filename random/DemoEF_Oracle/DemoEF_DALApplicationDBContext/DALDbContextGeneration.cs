@@ -14,7 +14,7 @@ namespace DemoEF_DALApplicationDBContext
         {
             IConfigurationRoot configuration =
                  new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                    .SetBasePath(Directory.GetParent(AppContext.BaseDirectory)!.FullName)
                     .AddJsonFile("appsettings.json", false)
                     .Build();
             _dbContextOptions = new DbContextOptionsBuilder<ApplicationDBContext>()
