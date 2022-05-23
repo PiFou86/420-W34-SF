@@ -84,7 +84,8 @@ void DemoAjoutPersonneAvecAdresse()
     }
     catch (Exception ex)
     {
-        Console.Error.WriteLine("Erreur durant l'appel de la couche affaire");
+        Console.Error.WriteLine("Erreur durant l'appel de la couche affaire :");
+        Console.Error.WriteLine(ex.Message);
     }
 
     Console.Out.WriteLine();
@@ -101,13 +102,14 @@ void DemoAjoutPersonneAvecAdresseRollback()
         using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
         {
             // Le code affaire ne devrait pas permettre au code d'aller jusqu'a la couche de persistance normalement mais le permet ici pour l'exemple
-            personneAvecAdresse.AdresseActuelle = new Adresse(0, 0, null, null, null);
+            personneAvecAdresse.AdresseActuelle = new Adresse(0, 0, null!, null!, null!);
             mp.AjouterPersonne(personneAvecAdresse);
         }
     }
     catch (Exception ex)
     {
-        Console.Error.WriteLine("Erreur durant l'appel de la couche affaire");
+        Console.Error.WriteLine("Erreur durant l'appel de la couche affaire :");
+        Console.Error.WriteLine(ex.Message);
     }
 
     Console.Out.WriteLine();
@@ -133,7 +135,8 @@ void DemoModificationPersonneAvecAdresse()
     }
     catch (Exception ex)
     {
-        Console.Error.WriteLine("Erreur durant l'appel de la couche affaire");
+        Console.Error.WriteLine("Erreur durant l'appel de la couche affaire :");
+        Console.Error.WriteLine(ex.Message);
     }
 
     Console.Out.WriteLine();

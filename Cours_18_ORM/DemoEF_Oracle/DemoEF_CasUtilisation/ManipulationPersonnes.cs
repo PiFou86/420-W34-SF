@@ -4,9 +4,9 @@ namespace DemoEF_CasUtilisation;
 
 public class ManipulationPersonnes : IDisposable
 {
-    private IDepotPersonne m_depotPersonne;
-    private IDepotAdresse m_depotAdresse;
-    private ITransactionBD m_transaction;
+    private readonly IDepotPersonne m_depotPersonne;
+    private readonly IDepotAdresse m_depotAdresse;
+    private readonly ITransactionBD m_transaction;
 
     public ManipulationPersonnes(IDepotPersonne p_depotPersonne, IDepotAdresse p_depotAdresse, ITransactionBD p_transaction)
     {
@@ -44,7 +44,7 @@ public class ManipulationPersonnes : IDisposable
             Console.Out.WriteLine("Ajout d'une personne !");
 
             this.m_transaction.BeginTransaction();
-            Adresse adresse = p_personne.AdresseActuelle;
+            Adresse? adresse = p_personne.AdresseActuelle;
             p_personne.AdresseActuelle = null;
             this.m_depotPersonne.AjouterPersonne(p_personne);
             p_personne.AdresseActuelle = adresse;

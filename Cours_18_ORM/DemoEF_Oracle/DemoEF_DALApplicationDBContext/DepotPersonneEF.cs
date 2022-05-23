@@ -6,16 +6,11 @@ namespace DemoEF_DALApplicationDBContext
 {
     public class DepotPersonneEF : Entite.IDepotPersonne
     {
-        private ApplicationDBContext m_dbContext;
+        private readonly ApplicationDBContext m_dbContext;
 
         public DepotPersonneEF(ApplicationDBContext p_dbContext)
         {
-            if (p_dbContext == null)
-            {
-                throw new ArgumentNullException(nameof(p_dbContext));
-            }
-
-            this.m_dbContext = p_dbContext;
+            this.m_dbContext = p_dbContext ?? throw new ArgumentNullException(nameof(p_dbContext));
         }
 
         public void AjouterPersonne(Entite.Personne p_personne)
