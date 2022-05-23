@@ -29,14 +29,34 @@ public class ManipulationPersonnes : IDisposable
             throw new ArgumentNullException(nameof(p_personne));
         }
 
+        if (this.m_depotPersonne.ObtenirPersonne(p_personne.PersonneId) is not null)
+        {
+            throw new InvalidOperationException($"La personne d'identifiant {p_personne.PersonneId} existe déjà !");
+        }
+
+        if (!this.EstPersonneValide(p_personne))
+        {
+            throw new ArgumentOutOfRangeException(nameof(p_personne));
+        }
+
         try
         {
-            this.m_transaction.BeginTransaction();
+            Console.Out.WriteLine("Ajout d'une personne !");
 
+            this.m_transaction.BeginTransaction();
+            Adresse adresse = p_personne.AdresseActuelle;
+            p_personne.AdresseActuelle = null;
             this.m_depotPersonne.AjouterPersonne(p_personne);
+            p_personne.AdresseActuelle = adresse;
             if (p_personne.AdresseActuelle is not null)
             {
-                this.m_depotAdresse.AjouterAdresse(p_personne.AdresseActuelle);
+                Adresse? adresseBD = this.m_depotAdresse.Obtenir(p_personne.AdresseActuelle.AdresseId);
+                if (adresseBD is null)
+                {
+                    this.m_depotAdresse.AjouterAdresse(p_personne.AdresseActuelle);
+                }
+
+                this.m_depotPersonne.MAJPersonne(p_personne);
             }
 
             this.m_transaction.Commit();
@@ -52,6 +72,14 @@ public class ManipulationPersonnes : IDisposable
         }
     }
 
+    private bool EstPersonneValide(Personne p_personne)
+    {
+        // Valider la personne et l'adresse si disponible
+        // Exemple de validations : valider que le code postal est bien dans la ville visée. Valider que la ville existe, etc.
+        // Les validations peuvent se faire en utilisant un autre dépot par exemple.
+        return true;
+    }
+
     public void MAJPersonne(Personne p_personne)
     {
         if (p_personne is null)
@@ -59,19 +87,31 @@ public class ManipulationPersonnes : IDisposable
             throw new ArgumentNullException(nameof(p_personne));
         }
 
+        if (this.m_depotPersonne.ObtenirPersonne(p_personne.PersonneId) is null)
+        {
+            throw new InvalidOperationException($"La personne d'identifiant {p_personne.PersonneId} n'existe pas !");
+        }
+
+        if (!this.EstPersonneValide(p_personne))
+        {
+            throw new ArgumentOutOfRangeException(nameof(p_personne));
+        }
+
         try
         {
             this.m_transaction.BeginTransaction();
+            Adresse? adresse = p_personne.AdresseActuelle;
+            if (adresse is not null)
+            {
+                Adresse? adresseBD = this.m_depotAdresse.Obtenir(adresse.AdresseId);
+                if (adresseBD is null)
+                {
+                    this.m_depotAdresse.AjouterAdresse(adresse);
+                }
+
+            }
 
             this.m_depotPersonne.MAJPersonne(p_personne);
-            if (p_personne.AdresseActuelle is not null)
-            {
-                Adresse? adresse = this.m_depotAdresse.Obtenir(p_personne.AdresseActuelle.AdresseId);
-                if (adresse is null)
-                {
-                    this.m_depotAdresse.AjouterAdresse(p_personne.AdresseActuelle);
-                }
-            }
 
             this.m_transaction.Commit();
             Console.Out.WriteLine("Transaction confirmée !");

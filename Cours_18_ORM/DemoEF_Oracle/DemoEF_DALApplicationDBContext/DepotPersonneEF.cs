@@ -50,5 +50,15 @@ namespace DemoEF_DALApplicationDBContext
             }
             return requete.Select(p => p.VersEntite()).ToList();
         }
+
+        public Entite.Personne? ObtenirPersonne(int p_personneId, bool inclureAdresse = false)
+        {
+            IQueryable<Personne> requete = this.m_dbContext.Personnes.Where(p => p.PersonneId == p_personneId);
+            if (inclureAdresse)
+            {
+                requete = requete.Include(p => p.AdresseActuelle);
+            }
+            return requete.Select(p => p.VersEntite()).SingleOrDefault();
+        }
     }
 }

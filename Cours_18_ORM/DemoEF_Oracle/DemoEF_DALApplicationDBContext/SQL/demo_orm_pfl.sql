@@ -1,3 +1,7 @@
+-- Créez l'utilisation pfleon, connectez-vous avec et exécutez le script suivant
+-- CREATE USER pfleon IDENTIFIED BY "Bonjour01.+";
+-- GRANT ALL PRIVILEGES TO pfleon;
+
 BEGIN
     EXECUTE IMMEDIATE 'ALTER TABLE ORM_ADRESSE DROP CONSTRAINT FK_ADRESSE_PROPRIETAIRE_ADRESSE';
 EXCEPTION
