@@ -1,0 +1,27 @@
+@startuml module01_demo
+
+entity personne {
+    * personneId : UNIQUEIDENTIFIER
+    --
+    * nom : VARCHAR(30)
+    * prenom : VARCHAR(30)
+    * dateNaissance : DATE
+}
+entity contact {
+    * contactId : UNIQUEIDENTIFIER
+    --
+    * typeContact : INT <<FK>>
+    * personneId : UNIQUEIDENTIFIER <<FK>>
+    * valeur : VARCHAR(1024)
+}
+entity typeContact {
+    * typeContact : INT
+    --
+    * description : VARCHAR(30)
+}
+
+personne ||--o{ contact
+contact }o--|| typeContact
+
+@enduml
+
