@@ -9,6 +9,10 @@ Objectifs :
 
 ## Exercice 1 - Installation des outils - Windows - Complète
 
+Nous allons installer les outils de base pour le cours, à savoir un serveur de gestion de bases de données (SGBD) et un outil de développement pour interagir avec.
+
+Le SGBD pourrait être installé à partir d'un conteneur mais vous n'avez pas encore vu ces notions en cours et vous n'avez probablement pas installé l'outil docker, d'où cette orientation.
+
 ### Exercice 1.1 - Installation d'SQL Server - Windows - Complète
 
 - Naviguez l'adresse : [https://www.microsoft.com/en-ca/sql-server/sql-server-downloads](https://www.microsoft.com/en-ca/sql-server/sql-server-downloads) et téléchargez la version "Developer" pour Windows
