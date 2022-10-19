@@ -1,0 +1,42 @@
+@startuml ERD_Logique
+
+entity utilisateur {
+    utilisateurId
+    --
+    nom
+    prenom
+    dateInscription
+    dateNaissance
+    age
+    dateDerniereConnexion
+}
+
+entity createur {
+    createurId
+    --
+    nomCommercial
+    dateInscription
+}
+
+entity chaine {
+    chaineId
+    --
+    nom
+    URI
+    description
+    dateCreation
+}
+
+entity don {
+    donId
+    --
+    date
+    montant
+}
+
+utilisateur ||--o{ don
+chaine ||--o{ don
+createur ||--o{ chaine
+createur |o--|| utilisateur
+
+@enduml

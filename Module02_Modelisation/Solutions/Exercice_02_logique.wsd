@@ -1,0 +1,118 @@
+@startuml exercice2_ERD_Logique
+
+entity produit {
+    * **produitId** << PK >>
+    --
+    * nom
+}
+entity ingredient {
+    * **ingredientId** << PK >>
+    --
+    * nom
+}
+entity commande {
+    * **commandeId** << PK >>
+    --
+    * dateCommande
+    * dateLivraison
+    datePaiement
+}
+entity succursale {
+    * **succursaleId** << PK >>
+    --
+    * nom
+}
+entity degustation {
+    * **degustationId** << PK >>
+    --
+    * date
+    * //succursaleId// << FK >>
+}
+
+entity employe {
+    * **employeId** << PK >>
+    --
+    * nom
+    * prenom
+    * dateEmbauche
+    * //categorieEmploiId// << FK >>
+    * //succursaleId// << FK >>
+}
+entity categorieEmploi {
+    * **categorieEmploiId** << PK >>
+    --
+    * nom
+}
+entity client {
+    * **clientId** << PK >>
+    --
+    * nom
+    * prenom
+}
+
+entity fournisseur {
+    * **fournisseurId** << PK >>
+    --
+    * nom
+}
+
+
+entity produitIngredient << intersection>> {
+    * //**produitId**// << PK >> << FK >>
+    * //**ingredientId**// << PK >> << FK >>
+    --
+    volume
+    masse
+}
+
+entity degustationProduit << intersection>> {
+    * //**degustationId**// << PK >> << FK >>
+    * //**produitId**// << PK >> << FK >>
+    --
+    * date
+}
+
+entity succursaleProduit << intersection>> {
+    * //**succursaleId**// << PK >> << FK >>
+    * //**produitId**// << PK >> << FK >>
+}
+
+entity commandeProduit << intersection>> {
+    * //**produitId**// << PK >> << FK >>
+    * //**commandeId**// << PK >> << FK >>
+    --
+    * quantite
+}
+
+entity ingredientFournisseur<< intersection>> {
+    * //**ingredientId**// << PK >> << FK >>
+    * //**fournisseurId**// << PK >> << FK >>
+}
+
+' produit }o--|{ ingredient : composé >
+produit ||--|{ produitIngredient
+produitIngredient }o--|| ingredient
+
+' produit }|--o{ degustation : propose < 
+produit ||--o{ degustationProduit
+degustationProduit }|--|| degustation
+
+' succursale }|--|{ produit : vend >
+succursale ||--|{ succursaleProduit
+succursaleProduit }|--|| produit
+
+' produit }|--o{ commande : assemble <
+produit ||--o{ commandeProduit
+commandeProduit }|--|| commande
+
+' ingredient }|--|{ fournisseur : fournit <
+ingredient ||--|{ ingredientFournisseur
+ingredientFournisseur }|--|| fournisseur
+
+succursale ||--o{ degustation : présente >
+
+succursale ||--o{ employe : embauche >
+employe }o--|| categorieEmploi : a pour tâches >
+
+client ||--|{ commande : compose >
+@enduml

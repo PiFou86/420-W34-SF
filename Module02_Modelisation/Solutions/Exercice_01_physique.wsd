@@ -1,0 +1,67 @@
+@startuml exercice1_ERD_Physique
+
+entity departement {
+    * **departementId** : int << PK >>
+    --
+    * nom : VARCHAR(30) 
+}
+
+entity programme {
+    * **programmeId** : int << PK >>
+    --
+    * nom : VARCHAR(30) 
+    * code : VARCHAR(10) 
+    * //departementId// : int << FK >>
+}
+
+entity programmeCours << intersection >> {
+    * //**programmeId**// : int << PK >> << FK >>
+    * //**coursId**// : int << PK >> << FK >>
+}
+
+entity cours {
+    * **coursId** : int << PK >>
+    --
+    * nom : VARCHAR(30) 
+    * nombreCredits : int 
+}
+
+entity coursEtudiant << intersection >> {
+    * //**coursId**// : int << PK >> << FK >>
+    * //**etudiantId**// : int << PK >> << FK >>
+}
+
+entity programmeEtudiant << intersection >> {
+    * //**programmeId**// : int << PK >> << FK >>
+    * //**etudiantId**// : int << PK >> << FK >>
+}
+
+entity etudiant {
+    * **etudiantId** : int << PK >>
+    --
+    * nom : VARCHAR(30) 
+    * prenom : VARCHAR(30) 
+    * //provinceId// : int << FK >>
+}
+
+entity province {
+    * **provinceId** : int <<PK>>
+    --
+    * nom : VARCHAR(30) 
+}
+
+departement ||--o{ programme : Offre >
+
+' programme }|--|{ cours : Est composé >
+programme ||--|{ programmeCours
+programmeCours }|--|| cours
+' programme }|--o{ etudiant : Est inscrit < 
+programme ||--o{ programmeEtudiant
+programmeEtudiant }o--|| etudiant
+' cours }o--o{ etudiant : Est inscrit <
+cours }o--|| coursEtudiant
+coursEtudiant ||--o{ etudiant
+
+etudiant }o--|| province : Habite >
+
+@enduml

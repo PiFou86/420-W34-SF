@@ -1,0 +1,46 @@
+@startuml ERD_Physique
+
+entity utilisateur {
+    * utilisateurId : UNIQUEIDENTIFIER
+    --
+    * nom : VARCHAR(30)
+    * prenom : VARCHAR(30)
+    * dateInscription : DATETIME
+    * dateNaissance : DATE
+    * age : calculé
+    dateDerniereConnexion : DATETIME
+}
+
+entity createur {
+    * createurId : UNIQUEIDENTIFIER
+    --
+    * nomCommercial : VARCHAR(30)
+    * utilisateurId : UNIQUEIDENTIFIER <<FK>>
+    * dateInscription : DATETIME
+}
+
+entity chaine {
+    * chaineId : UNIQUEIDENTIFIER
+    --
+    * nom : VARCHAR(30)
+    * URI : VARCHAR(1024)
+    * description : VARCHAR(1024)
+    * createurId : UNIQUEIDENTIFIER <<FK>>
+    * dateCreation : DATETIME
+}
+
+entity don {
+    * donId : UNIQUEIDENTIFIER
+    --
+    * utilisateurId : UNIQUEIDENTIFIER <<FK>>
+    * chaineId : UNIQUEIDENTIFIER <<FK>>
+    * date : DATETIME
+    * montant : MONEY
+}
+
+utilisateur ||--o{ don
+chaine ||--o{ don
+createur ||--o{ chaine
+createur |o--|| utilisateur
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml ERD_Conceptuel
+
+entity utilisateur {
+
+}
+
+entity createur {
+   
+}
+
+entity chaine {
+  
+}
+
+utilisateur }o--o{ chaine :> donation
+
+createur ||--o{ chaine :> possède
+createur |o--|| utilisateur :< est un
+
+@enduml

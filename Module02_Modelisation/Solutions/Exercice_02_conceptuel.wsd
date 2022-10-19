@@ -1,0 +1,25 @@
+@startuml exercice2_ERD_Conceptuel
+
+entity produit {}
+entity ingredient {}
+entity commande {}
+entity succursale {}
+entity degustation {}
+entity employe {}
+entity categorieEmploi {}
+entity client {}
+entity fournisseur {}
+
+produit }o--|{ ingredient : composé >
+produit }|--o{ degustation : propose < 
+succursale }|--|{ produit : vend >
+produit }|--o{ commande : assemble <
+
+ingredient }|--|{ fournisseur : fournit <
+
+succursale ||--o{ degustation : présente >
+succursale ||--o{ employe : embauche >
+employe }o--|| categorieEmploi : a pour tâches >
+
+client ||--|{ commande : compose >
+@enduml

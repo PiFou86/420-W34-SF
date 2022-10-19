@@ -1,0 +1,15 @@
+@startuml exercice1_ERD_Conceptuel
+
+entity departement {}
+entity programme {}
+entity cours {}
+entity etudiant {}
+entity province {}
+
+departement ||--o{ programme : Offre >
+programme }|--|{ cours : Est composé >
+programme }|--o{ etudiant : Est inscrit < 
+cours }o--o{ etudiant : Est inscrit <
+etudiant }o--|| province : Habite >
+
+@enduml

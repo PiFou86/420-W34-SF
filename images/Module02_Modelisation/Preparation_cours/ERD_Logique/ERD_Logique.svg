@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="491px" preserveAspectRatio="none" style="width:327px;height:491px;background:#FFFFFF;" version="1.1" viewBox="0 0 327 491" width="327px" zoomAndPan="magnify"><defs/><g><!--MD5=[43256c504d4873097c2201205cc9ed34]
+class utilisateur--><g id="elem_utilisateur"><rect codeLine="2" fill="#F1F1F1" height="163.418" id="utilisateur" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="177" x="7" y="164"/><ellipse cx="56.75" cy="180" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M60.3643,186.5 L52.6445,186.5 L52.6445,174.1069 L60.3643,174.1069 L60.3643,176.2651 L55.0933,176.2651 L55.0933,178.938 L59.8662,178.938 L59.8662,181.0962 L55.0933,181.0962 L55.0933,184.3418 L60.3643,184.3418 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="77.25" y="185.291">utilisateur</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="183" y1="196" y2="196"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="13" y="213.5352">utilisateurId</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="183" y1="220.4883" y2="220.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="13" y="238.0234">nom</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="13" y="254.5117">prenom</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="13" y="271">dateInscription</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="13" y="287.4883">dateNaissance</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="25" x="13" y="303.9766">age</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="13" y="320.4648">dateDerniereConnexion</text></g><!--MD5=[18d222b23d16918b2e30b2a06d1af479]
+class createur--><g id="elem_createur"><rect codeLine="13" fill="#F1F1F1" height="97.4648" id="createur" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="125" x="120" y="7"/><ellipse cx="151.2" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M154.8143,29.5 L147.0945,29.5 L147.0945,17.1069 L154.8143,17.1069 L154.8143,19.2651 L149.5433,19.2651 L149.5433,21.938 L154.3162,21.938 L154.3162,24.0962 L149.5433,24.0962 L149.5433,27.3418 L154.8143,27.3418 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="168.8" y="28.291">createur</text><line style="stroke:#181818;stroke-width:0.5;" x1="121" x2="244" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="126" y="56.5352">createurId</text><line style="stroke:#181818;stroke-width:1.0;" x1="121" x2="244" y1="63.4883" y2="63.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="126" y="81.0234">nomCommercial</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="126" y="97.5117">dateInscription</text></g><!--MD5=[60838059855595057adeadf290302a4f]
+class chaine--><g id="elem_chaine"><rect codeLine="20" fill="#F1F1F1" height="130.4414" id="chaine" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="101" x="219" y="180.5"/><ellipse cx="244.8" cy="196.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M248.4143,203 L240.6945,203 L240.6945,190.6069 L248.4143,190.6069 L248.4143,192.7651 L243.1433,192.7651 L243.1433,195.438 L247.9162,195.438 L247.9162,197.5962 L243.1433,197.5962 L243.1433,200.8418 L248.4143,200.8418 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="261.2" y="201.791">chaine</text><line style="stroke:#181818;stroke-width:0.5;" x1="220" x2="319" y1="212.5" y2="212.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="225" y="230.0352">chaineId</text><line style="stroke:#181818;stroke-width:1.0;" x1="220" x2="319" y1="236.9883" y2="236.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="225" y="254.5234">nom</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="23" x="225" y="271.0117">URI</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="225" y="287.5">description</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="225" y="303.9883">dateCreation</text></g><!--MD5=[a68f21b836a400f2f1dc8b705bd402bc]
+class don--><g id="elem_don"><rect codeLine="29" fill="#F1F1F1" height="97.4648" id="don" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="70" x="147.5" y="387"/><ellipse cx="167.45" cy="403" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M171.0643,409.5 L163.3445,409.5 L163.3445,397.1069 L171.0643,397.1069 L171.0643,399.2651 L165.7933,399.2651 L165.7933,401.938 L170.5662,401.938 L170.5662,404.0962 L165.7933,404.0962 L165.7933,407.3418 L171.0643,407.3418 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="182.55" y="408.291">don</text><line style="stroke:#181818;stroke-width:0.5;" x1="148.5" x2="216.5" y1="419" y2="419"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="153.5" y="436.5352">donId</text><line style="stroke:#181818;stroke-width:1.0;" x1="148.5" x2="216.5" y1="443.4883" y2="443.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="153.5" y="461.0234">date</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="153.5" y="477.5117">montant</text></g><!--MD5=[f97ebbe9567929fa3650c6bbdf08c36c]
+link utilisateur to don--><g id="link_utilisateur_don"><path codeLine="36" d="M136.34,334.74 C143.37,349.94 150.49,365.34 156.97,379.34 " fill="none" id="utilisateur-don" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="157.1412" x2="165.9456" y1="379.7093" y2="384.4509"/><line style="stroke:#181818;stroke-width:1.0;" x1="157.1412" x2="155.0544" y1="379.7093" y2="389.4891"/><line style="stroke:#181818;stroke-width:1.0;" x1="157.1412" x2="160.5" y1="379.7093" y2="386.97"/><ellipse cx="154.6221" cy="374.2637" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="130.8151" x2="138.0783" y1="332.3583" y2="329.0049"/><line style="stroke:#181818;stroke-width:1.0;" x1="132.0726" x2="139.3358" y1="335.082" y2="331.7287"/><line style="stroke:#181818;stroke-width:1.0;" x1="136.1234" x2="132.77" y1="334.3133" y2="327.05"/></g><!--MD5=[cf2f6805d20911c1c7a67076b6edad10]
+link chaine to don--><g id="link_chaine_don"><path codeLine="37" d="M236.38,318.08 C226.96,338.42 216.86,360.24 207.98,379.44 " fill="none" id="chaine-don" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="207.8688" x2="209.9556" y1="379.6793" y2="389.4591"/><line style="stroke:#181818;stroke-width:1.0;" x1="207.8688" x2="199.0644" y1="379.6793" y2="384.4209"/><line style="stroke:#181818;stroke-width:1.0;" x1="207.8688" x2="204.51" y1="379.6793" y2="386.94"/><ellipse cx="210.3879" cy="374.2337" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="234.4902" x2="241.751" y1="312.621" y2="315.9798"/><line style="stroke:#181818;stroke-width:1.0;" x1="233.2307" x2="240.4914" y1="315.3437" y2="318.7026"/><line style="stroke:#181818;stroke-width:1.0;" x1="236.4412" x2="239.8" y1="317.9307" y2="310.67"/></g><!--MD5=[b516e595a2c2bacda291a774d6b805af]
+link createur to chaine--><g id="link_createur_chaine"><path codeLine="38" d="M208.13,111.88 C216.98,131.01 227.03,152.72 236.39,172.96 " fill="none" id="createur-chaine" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="236.4512" x2="245.2556" y1="173.0793" y2="177.8209"/><line style="stroke:#181818;stroke-width:1.0;" x1="236.4512" x2="234.3644" y1="173.0793" y2="182.8591"/><line style="stroke:#181818;stroke-width:1.0;" x1="236.4512" x2="239.81" y1="173.0793" y2="180.34"/><ellipse cx="233.9321" cy="167.6337" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="202.729" x2="209.9898" y1="109.7398" y2="106.381"/><line style="stroke:#181818;stroke-width:1.0;" x1="203.9886" x2="211.2493" y1="112.4626" y2="109.1037"/><line style="stroke:#181818;stroke-width:1.0;" x1="208.0388" x2="204.68" y1="111.6907" y2="104.43"/></g><!--MD5=[0024bccd09e18c67e7ed6d8940f37a0a]
+link createur to utilisateur--><g id="link_createur_utilisateur"><path codeLine="39" d="M156.92,111.77 C150.44,125.78 143.32,141.17 136.29,156.36 " fill="none" id="createur-utilisateur" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="138.1598" x2="130.899" y1="161.839" y2="158.4802"/><line style="stroke:#181818;stroke-width:1.0;" x1="139.4193" x2="132.1586" y1="159.1163" y2="155.7574"/><line style="stroke:#181818;stroke-width:1.0;" x1="136.2088" x2="132.85" y1="156.5293" y2="163.79"/><line style="stroke:#181818;stroke-width:1.0;" x1="155.7016" x2="160.32" y1="114.4135" y2="104.43"/><ellipse cx="155.7016" cy="114.4135" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="155.0102" x2="162.271" y1="106.381" y2="109.7398"/></g><!--MD5=[7abea8e5b9f2cc84f69b742d6eea0f82]
+@startuml ERD_Logique
+
+entity utilisateur {
+    utilisateurId
+    - -
+    nom
+    prenom
+    dateInscription
+    dateNaissance
+    age
+    dateDerniereConnexion
+}
+
+entity createur {
+    createurId
+    - -
+    nomCommercial
+    dateInscription
+}
+
+entity chaine {
+    chaineId
+    - -
+    nom
+    URI
+    description
+    dateCreation
+}
+
+entity don {
+    donId
+    - -
+    date
+    montant
+}
+
+utilisateur ||- -o{ don
+chaine ||- -o{ don
+createur ||- -o{ chaine
+createur |o- -|| utilisateur
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 13:01:30 EDT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: CA
+--></g></svg>

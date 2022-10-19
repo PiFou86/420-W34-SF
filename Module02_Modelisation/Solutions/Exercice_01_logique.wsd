@@ -1,0 +1,67 @@
+@startuml exercice1_ERD_Logique
+
+entity departement {
+    * **departementId** << PK >>
+    --
+    * nom
+}
+
+entity programme {
+    * **programmeId** << PK >>
+    --
+    * nom
+    * code
+    * //departementId// << FK >>
+}
+
+entity programmeCours << intersection >> {
+    * //**programmeId**// << PK >> << FK >>
+    * //**coursId**// << PK >> << FK >>
+}
+
+entity cours {
+    * **coursId** << PK >>
+    --
+    * nom
+    * nombreCredits
+}
+
+entity coursEtudiant << intersection >> {
+    * //**coursId**// << PK >> << FK >>
+    * //**etudiantId**// << PK >> << FK >>
+}
+
+entity programmeEtudiant << intersection >> {
+    * //**programmeId**// << PK >> << FK >>
+    * //**etudiantId**// << PK >> << FK >>
+}
+
+entity etudiant {
+    * **etudiantId** << PK >>
+    --
+    * nom
+    * prenom
+    * //provinceId// << FK >>
+}
+
+entity province {
+    * **provinceId** <<PK>>
+    --
+    * nom
+}
+
+departement ||--o{ programme : Offre >
+
+' programme }|--|{ cours : Est composé >
+programme ||--|{ programmeCours
+programmeCours }|--|| cours
+' programme }|--o{ etudiant : Est inscrit < 
+programme ||--o{ programmeEtudiant
+programmeEtudiant }o--|| etudiant
+' cours }o--o{ etudiant : Est inscrit <
+cours }o--|| coursEtudiant
+coursEtudiant ||--o{ etudiant
+
+etudiant }o--|| province : Habite >
+
+@enduml
