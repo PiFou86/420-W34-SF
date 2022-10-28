@@ -69,7 +69,7 @@ Soit les tables "etudiant", "cours" et "etudiant_cours" :
 - Ouvrez SSMS et implantez les tables et les données dans la base de données 'M03_Exercice1'
 - Testez vos requêtes précédentes
 
-## Exercice 2 - Wide World Importers
+## Exercice 2 - Wide World Importers - Warehouse
 
 Voici une extraction des tables contenues dans le schéma "Warehouse" avec lequel vous allez travailler. Pour plus de détails, vous pouvez [vous référer à la référence ici](../BDs/README.md).
 
@@ -80,3 +80,23 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
   - Affichez l'ensemble des produits donc la quantité disponible est supérieure à 500000
   - Affichez l'ensemble des produits qui ont au moins deux groupes
   - Affichez l'ensemble des produits qui n'ont pas de groupe
+
+## Exercice 3 - Wide World Importers - Sales
+
+- Connectez-vous à votre SGBD avec SSMS
+- À partir de l'option "Database Diagrams" de la base de données "Wide World Importers", créez un diagramme qui contient la table "Invoices" et "Orders" et ses dépendances directes du schéma "Sales".
+- Écrivez les requêtes suivantes :
+  1. Affichez les commandes non facturées
+  2. Comptez le nombre de commandes non facturées
+  3. Prenez l'identifiant d'une de ces commandes et affichez le détail de la commande avec le total avant taxes et après taxes
+  4. Affichez le chiffre d'affaire non facturé
+  5. Affichez le chiffre d'affaire non facturé par année
+  6. Affichez le chiffre d'affaire non facturé par année et par mois
+  7. Affichez les commandes de plus de 3 articles qui ne sont pas facturées
+  8. Affichez la facture 4242 avec son détail (+ montant sans et avec taxes)
+  9. À partir de votre précédente requête, trouvez une manière d'insérer le résultat dans la nouvelle table "Facture_4242"
+  10. Créez une nouvelle table dans le schéma "Sales" qui s'appelle "InvoicesCache" qui permettra d'ajouter de l'information aux factures sans toucher aux tables d'origines. Elle doit contenir, en plus des informations de liaisons :
+      1. Le montant total des taxes
+      2. Le montant de la facture avant et après taxes
+   11. Écrivez une requête d'insertion qui rempli la nouvelle table
+   12. Ajoutez une clause à votre requête qui vous évite les erreurs d'insertion à la deuxième exécution de la requête.
