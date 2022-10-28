@@ -94,9 +94,9 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
   6. Affichez le chiffre d'affaire non facturé par année et par mois
   7. Affichez les commandes de plus de 3 articles qui ne sont pas facturées
   8. Affichez la facture 4242 avec son détail (+ montant sans et avec taxes)
-  9. À partir de votre précédente requête, trouvez une manière d'insérer le résultat dans la nouvelle table "Facture_4242"
+  9. À partir de votre précédente requête, trouvez une manière d'insérer le résultat dans la nouvelle table "Facture_4242" (Ne pas faire d'INSERT ici voir [SELECT ... INTO](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-into-clause-transact-sql))
   10. Créez une nouvelle table dans le schéma "Sales" qui s'appelle "InvoicesCache" qui permettra d'ajouter de l'information aux factures sans toucher aux tables d'origines. Elle doit contenir, en plus des informations de liaisons :
       1. Le montant total des taxes
       2. Le montant de la facture avant et après taxes
-   11. Écrivez une requête d'insertion qui rempli la nouvelle table
-   12. Ajoutez une clause à votre requête qui vous évite les erreurs d'insertion à la deuxième exécution de la requête.
+   1.  Écrivez une requête d'insertion qui rempli la nouvelle table
+   2.  Ajoutez une clause à votre requête qui vous évite les erreurs d'insertion à la deuxième exécution de la requête.
