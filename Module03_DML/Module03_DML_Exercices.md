@@ -120,7 +120,7 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
 1. Importez les données des deux fichiers dans les tables éponymes. Pour cela, utilisez la requête suivante pour le premier fichier et adaptée-là pour le deuxième fichier :
 
 ```sql
-BULK INSERT importation_vdq-zonagemunicipalzones_01
+BULK INSERT importation_vdq_zonagemunicipalzones_01
 FROM N'C:\DFC-Info\S3\420-W34-SF\M03\Data\vdq-zonagemunicipalzones_01.csv'
 WITH
 (
@@ -137,7 +137,7 @@ SELECT [ID]
       ,[SUPERFICIE]
       ,[PERIMETRE]
       ,GEOMETRY::Parse([GEOMETRIE]) AS GEOMETRIE
-FROM import_zonagemunicipalzones_01
+FROM importation_vdq_zonagemunicipalzones_01
 ```
 
 4. Allez dans l'onglet "Spacial results" et observez l'affichage.
