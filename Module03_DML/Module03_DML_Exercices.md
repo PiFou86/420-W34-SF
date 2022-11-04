@@ -144,7 +144,7 @@ FROM importation_vdq_zonagemunicipalzones_01
 
 ### Exercice 4.3 - Fusion de données
 
-1. Créez la table ```zonageMuniciapl``` qui contient tous les champs sus-mentionnés mais avec les bons types de données
+1. Créez la table ```zonageMunicipal``` qui contient tous les champs sus-mentionnés mais avec les bons types de données
 2. Lisez [la documentation de l'instruction ```MERGE```](https://learn.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql) et appliquez la fusion de la table ```importation_vdq_zonagemunicipalzones_01``` dans la table ```zonageMunicipal```
 3. Dans votre instruction ```MERGE```, ajouter le paramètre ```OUTPUT``` si ce n'est pas déjà fait avec le code suivant : ```OUTPUT deleted.*, $action, inserted.*```
 4. Effectuer la même chose pour la deuxième table d'importation. Posez-vous les questions suivantes :
