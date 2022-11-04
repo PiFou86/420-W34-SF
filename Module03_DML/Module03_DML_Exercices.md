@@ -146,8 +146,9 @@ FROM import_zonagemunicipalzones_01
 
 1. Créez la table ```zonageMuniciapl``` qui contient tous les champs sus-mentionnés mais avec les bons types de données
 2. Lisez [la documentation de l'instruction ```MERGE```](https://learn.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql) et appliquez la fusion de la table ```importation_vdq-zonagemunicipalzones_01``` dans la table ```zonageMunicipal```
-3. Effectuer la même chose pour la deuxième table d'importation. Posez-vous les questions suivantes :
+3. Dans votre instruction ```MERGE```, ajouter le paramètre ```OUTPUT``` si ce n'est pas déjà fait avec le code suivant : ```OUTPUT deleted.*, $action, inserted.*```
+4. Effectuer la même chose pour la deuxième table d'importation. Posez-vous les questions suivantes :
    1. Qu'avez-vous fait des enregistrements présents dans la source mais pas dans la destination ?
    2. Qu'avez-vous fait des enregistrements présents dans la destination mais pas dans la source ?
    3. Comment réagissez-vous l'action à prendre si la zone existe ?
-4. Modifiez votre fichier SQL afin que vous puissiez l'exécuter sans erreur à chaque exécution : la BD doit être supprimée et recréée à chaque exécution par exemple
+5. Modifiez votre fichier SQL afin que vous puissiez l'exécuter sans erreur à chaque exécution : la BD doit être supprimée et recréée à chaque exécution par exemple
