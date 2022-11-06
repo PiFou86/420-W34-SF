@@ -98,7 +98,7 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
   10. Créez une nouvelle table dans le schéma "Sales" qui s'appelle "InvoicesCache" qui permettra d'ajouter de l'information aux factures sans toucher aux tables d'origines. Elle doit contenir, en plus des informations de liaisons :
       1. Le montant total des taxes
       2. Le montant de la facture avant et après taxes
-   11.  Écrivez une requête d'insertion qui rempli la nouvelle table
+   11.  Écrivez une requête d'insertion qui remplit la nouvelle table
    12.  Ajoutez une clause à votre requête qui vous évite les erreurs d'insertion à la deuxième exécution de la requête.
 
 ## Exercice 4 - Importation des données #1 - Zonage municipal - Zones
