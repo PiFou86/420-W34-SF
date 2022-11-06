@@ -113,7 +113,8 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
       1. Supprimez les lignes 2 à 6
    2. Fichier ```vdq-zonagemunicipalzones_02.csv```
       1. Supprimez les 5 dernières lignes de données
-5. Créez les tables ```importation_vdq_zonagemunicipalzones_01``` et ```importation_vdq_zonagemunicipalzones_02``` avec les colonnes ```ID```, ```SUPERFICIE```, ```PERIMETRE``` de type ```VARCHAR(8000)``` et ```GEOMETRIE``` de type ```VARCHAR(max)```
+5. Créez la base de données "M03_Exercice4" et placez vous dedans
+6. Créez les tables ```importation_vdq_zonagemunicipalzones_01``` et ```importation_vdq_zonagemunicipalzones_02``` avec les colonnes ```ID```, ```SUPERFICIE```, ```PERIMETRE``` de type ```VARCHAR(8000)``` et ```GEOMETRIE``` de type ```VARCHAR(max)```
 
 ### Exercice 4.2 - Importation de nos fichiers CSV
 
