@@ -24,7 +24,7 @@ Soit les données suivantes :
 
 - Créez la base de données "M04_Window_Function"
 - Dans cette base de données, créer la table "ApplicationEvents" et insérez les données précédentes
-- Écrire une requête qui affiche par utilisateur, le numéro de l'événement, la date, le type, la description et le temps en seconde depuis le dernier événement
+- Écrire une requête qui affiche par utilisateur, le numéro de l'événement, la date, le type, la description et le temps en seconde depuis l'événement précédent
 - Que peut-on déduire du résultat de la requête sachant que les utilisateurs 1 et 2 sont des humains ?
 
 ## Exercice 2 - Wide World Importers
