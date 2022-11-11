@@ -98,7 +98,7 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
   10. Créez une nouvelle table dans le schéma "Sales" qui s'appelle "InvoicesCache" qui permettra d'ajouter de l'information aux factures sans toucher aux tables d'origines. Elle doit contenir, en plus des informations de liaisons :
       1. Le montant total des taxes
       2. Le montant de la facture avant et après taxes
-   11.  Écrivez une requête d'insertion qui rempli la nouvelle table
+   11.  Écrivez une requête d'insertion qui remplit la nouvelle table
    12.  Ajoutez une clause à votre requête qui vous évite les erreurs d'insertion à la deuxième exécution de la requête.
 
 ## Exercice 4 - Importation des données #1 - Zonage municipal - Zones
@@ -113,15 +113,15 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
       1. Supprimez les lignes 2 à 6
    2. Fichier ```vdq-zonagemunicipalzones_02.csv```
       1. Supprimez les 5 dernières lignes de données
-      2. Cherchez la ville de "Québec" et modifiez le nom pour "Quebeq"
-5. Créez les tables ```importation_vdq-zonagemunicipalzones_01``` et ```importation_vdq-zonagemunicipalzones_01``` avec les colonnes ```ID```, ```SUPERFICIE```, ```PERIMETRE``` de type ```VARCHAR(8000)``` et ```GEOMETRIE``` de type ```VARCHAR(max)```
+5. Créez la base de données "M03_Exercice4" et placez vous dedans
+6. Créez les tables ```importation_vdq_zonagemunicipalzones_01``` et ```importation_vdq_zonagemunicipalzones_02``` avec les colonnes ```ID```, ```SUPERFICIE```, ```PERIMETRE``` de type ```VARCHAR(8000)``` et ```GEOMETRIE``` de type ```VARCHAR(max)```
 
 ### Exercice 4.2 - Importation de nos fichiers CSV
 
 1. Importez les données des deux fichiers dans les tables éponymes. Pour cela, utilisez la requête suivante pour le premier fichier et adaptée-là pour le deuxième fichier :
 
 ```sql
-BULK INSERT importation_vdq-zonagemunicipalzones_01
+BULK INSERT importation_vdq_zonagemunicipalzones_01
 FROM N'C:\DFC-Info\S3\420-W34-SF\M03\Data\vdq-zonagemunicipalzones_01.csv'
 WITH
 (
@@ -138,17 +138,18 @@ SELECT [ID]
       ,[SUPERFICIE]
       ,[PERIMETRE]
       ,GEOMETRY::Parse([GEOMETRIE]) AS GEOMETRIE
-FROM import_zonagemunicipalzones_01
+FROM importation_vdq_zonagemunicipalzones_01
 ```
 
 4. Allez dans l'onglet "Spacial results" et observez l'affichage.
 
 ### Exercice 4.3 - Fusion de données
 
-1. Créez la table ```zonageMuniciapl``` qui contient tous les champs sus-mentionnés mais avec les bons types de données
-2. Lisez [la documentation de l'instruction ```MERGE```](https://learn.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql) et appliquez la fusion de la table ```importation_vdq-zonagemunicipalzones_01``` dans la table ```zonageMuniciapl```
-3. Effectuer la même chose pour la deuxième table d'importation. Posez-vous les questions suivantes :
+1. Créez la table ```zonageMunicipal``` qui contient tous les champs sus-mentionnés mais avec les bons types de données
+2. Lisez [la documentation de l'instruction ```MERGE```](https://learn.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql) et appliquez la fusion de la table ```importation_vdq_zonagemunicipalzones_01``` dans la table ```zonageMunicipal```
+3. Dans votre instruction ```MERGE```, ajouter le paramètre ```OUTPUT``` si ce n'est pas déjà fait avec le code suivant : ```OUTPUT deleted.*, $action, inserted.*```
+4. Effectuer la même chose pour la deuxième table d'importation. Posez-vous les questions suivantes :
    1. Qu'avez-vous fait des enregistrements présents dans la source mais pas dans la destination ?
    2. Qu'avez-vous fait des enregistrements présents dans la destination mais pas dans la source ?
    3. Comment réagissez-vous l'action à prendre si la zone existe ?
-4. Modifiez votre fichier SQL afin que vous puissiez l'exécuter sans erreur à chaque exécution : la BD doit être supprimée et recréée à chaque exécution par exemple
+5. Modifiez votre fichier SQL afin que vous puissiez l'exécuter sans erreur à chaque exécution : la BD doit être supprimée et recréée à chaque exécution par exemple
