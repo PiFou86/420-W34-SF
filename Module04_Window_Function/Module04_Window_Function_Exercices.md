@@ -31,47 +31,7 @@ Soit les données suivantes :
 
 En utilisant les fonctions de fenêtrage et les fonctions d'agrégat, écrire les requêtes qui permettent de :
 
-- Afficher le montant des ventes par année, mois et vendeurs. Les données doivent être triées par année, mois et montant des ventes pour le mois visé. Vous devez avoir les colonnes suivantes : numéro de ligne, année, mois, classement du vendeur dans le mois en cours, tiers, nom complet, montant des ventes :
-
-<details>
-    <summary>Exemple</summary>
-
-| **NumeroDeLigne** | **AnneeVentes** | **MoisVentes** | **Classement** | **Tiers** | **FullName**       | **MontantVentes** |
-|-------------------|-----------------|----------------|----------------|-----------|--------------------|-------------------|
-| **1**             | 2013            | 1              | 1              | 1         | Hudson Onslow      | $484,782.95       |
-| **2**             | 2013            | 1              | 2              | 1         | Kayla Woodcock     | $392,324.20       |
-| **3**             | 2013            | 1              | 3              | 1         | Sophia Hinton      | $389,433.50       |
-| **4**             | 2013            | 1              | 4              | 1         | Amy Trefl          | $374,377.85       |
-| **5**             | 2013            | 1              | 5              | 2         | Jack Potter        | $370,331.75       |
-| **6**             | 2013            | 1              | 6              | 2         | Anthony Grosse     | $363,910.20       |
-| **7**             | 2013            | 1              | 7              | 2         | Hudson Hollinworth | $363,369.15       |
-| **8**             | 2013            | 1              | 8              | 3         | Archer Lamble      | $359,316.65       |
-| **9**             | 2013            | 1              | 9              | 3         | Taj Shand          | $340,702.90       |
-| **10**            | 2013            | 1              | 10             | 3         | Lily Code          | $331,861.70       |
-| **11**            | 2013            | 2              | 1              | 1         | Jack Potter        | $319,803.15       |
-| **12**            | 2013            | 2              | 2              | 1         | Hudson Onslow      | $303,760.05       |
-| **13**            | 2013            | 2              | 3              | 1         | Sophia Hinton      | $299,130.40       |
-| **14**            | 2013            | 2              | 4              | 1         | Amy Trefl          | $298,098.75       |
-| **...**            | ...            | ...              | ...              | ...         | ...                | ...       |
-
-</details>
-
-- Afficher le détail de la facture d'identifiant 126 : numéro de ligne, numéro de facture, prix unitaire, quantité, prix hors taxes, taxes et total courant dans la facture.
-
-<details>
-    <summary>Résultat attendu</summary>
-
-| **NumeroLigne** | **InvoiceID** | **UnitPrice** | **Quantity** | **PrixHT** | **Taxes** | **TotalTTCCourant** |
-|-----------------|---------------|---------------|--------------|------------|-----------|---------------------|
-| **1**           | 126           | 105.00        | 90           | $9,450.00  | $1,417.50 | $10,867.50          |
-| **2**           | 126           | 3.70          | 108          | $399.60    | $59.94    | $11,327.04          |
-| **3**           | 126           | 13.00         | 10           | $130.00    | $19.50    | $11,476.54          |
-| **4**           | 126           | 32.00         | 7            | $224.00    | $33.60    | $11,734.14          |
-| **5**           | 126           | 25.00         | 5            | $125.00    | $18.75    | $11,877.89          |
-
-</details>
-
-- Afficher le détail des transactions pour le client d'identifiant 401 : numéro de ligne, numéro de ligne dans le mois, identifiant de client, date de la transaction, montant et total courant depuis le premier enregistrement.
+- Afficher le détail des transactions pour le client d'identifiant 401 : numéro de ligne, numéro de ligne dans le mois, identifiant de client, date de la transaction, montant et total courant depuis le premier enregistrement (Table : CustomerTransactions).
 
 <details>
     <summary>Extrait résultat attendu</summary>
@@ -97,3 +57,43 @@ En utilisant les fonctions de fenêtrage et les fonctions d'agrégat, écrire le
 </details>
 
 - Effectuer le traitement précédent pour le client d'identifiant 404
+
+- Afficher le détail de la facture d'identifiant 126 : numéro de ligne, numéro de facture, prix unitaire, quantité, prix hors taxes, taxes et total courant dans la facture (tables Invoices, InvoiceLines).
+
+<details>
+    <summary>Résultat attendu</summary>
+
+| **NumeroLigne** | **InvoiceID** | **UnitPrice** | **Quantity** | **PrixHT** | **Taxes** | **TotalTTCCourant** |
+|-----------------|---------------|---------------|--------------|------------|-----------|---------------------|
+| **1**           | 126           | 105.00        | 90           | $9,450.00  | $1,417.50 | $10,867.50          |
+| **2**           | 126           | 3.70          | 108          | $399.60    | $59.94    | $11,327.04          |
+| **3**           | 126           | 13.00         | 10           | $130.00    | $19.50    | $11,476.54          |
+| **4**           | 126           | 32.00         | 7            | $224.00    | $33.60    | $11,734.14          |
+| **5**           | 126           | 25.00         | 5            | $125.00    | $18.75    | $11,877.89          |
+
+</details>
+
+- Afficher le montant des ventes par année, mois et vendeurs. Les données doivent être triées par année, mois et montant des ventes pour le mois visé. Vous devez avoir les colonnes suivantes : numéro de ligne, année, mois, classement du vendeur dans le mois en cours, tiers, nom complet, montant des ventes (tables Invoices, InvoiceLines, People) :
+
+<details>
+    <summary>Exemple</summary>
+
+| **NumeroDeLigne** | **AnneeVentes** | **MoisVentes** | **Classement** | **Tiers** | **FullName**       | **MontantVentes** |
+|-------------------|-----------------|----------------|----------------|-----------|--------------------|-------------------|
+| **1**             | 2013            | 1              | 1              | 1         | Hudson Onslow      | $484,782.95       |
+| **2**             | 2013            | 1              | 2              | 1         | Kayla Woodcock     | $392,324.20       |
+| **3**             | 2013            | 1              | 3              | 1         | Sophia Hinton      | $389,433.50       |
+| **4**             | 2013            | 1              | 4              | 1         | Amy Trefl          | $374,377.85       |
+| **5**             | 2013            | 1              | 5              | 2         | Jack Potter        | $370,331.75       |
+| **6**             | 2013            | 1              | 6              | 2         | Anthony Grosse     | $363,910.20       |
+| **7**             | 2013            | 1              | 7              | 2         | Hudson Hollinworth | $363,369.15       |
+| **8**             | 2013            | 1              | 8              | 3         | Archer Lamble      | $359,316.65       |
+| **9**             | 2013            | 1              | 9              | 3         | Taj Shand          | $340,702.90       |
+| **10**            | 2013            | 1              | 10             | 3         | Lily Code          | $331,861.70       |
+| **11**            | 2013            | 2              | 1              | 1         | Jack Potter        | $319,803.15       |
+| **12**            | 2013            | 2              | 2              | 1         | Hudson Onslow      | $303,760.05       |
+| **13**            | 2013            | 2              | 3              | 1         | Sophia Hinton      | $299,130.40       |
+| **14**            | 2013            | 2              | 4              | 1         | Amy Trefl          | $298,098.75       |
+| **...**           | ...             | ...            | ...            | ...       | ...                | ...               |
+
+</details>
