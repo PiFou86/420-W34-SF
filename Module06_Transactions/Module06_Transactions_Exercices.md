@@ -39,7 +39,7 @@ FROM Sales.Orders o
 INNER JOIN Sales.OrderLines ol ON ol.OrderID = o.OrderID
 WHERE o.OrderID = 217829
 
--- Requête 2 - Évitez les décompositions de dates dans le SELECT
+-- Requête 2 - Évitez les décompositions de prix dans le SELECT
 SELECT 
 	  i.InvoiceID
 	, c.CustomerID
