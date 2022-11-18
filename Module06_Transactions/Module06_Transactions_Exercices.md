@@ -2,7 +2,7 @@
 
 ## Exercice 1 - Transactions
 
-Un nouveau pays a fait son apparition, le "Listenbourg". Depuis que son ministère que l'intérieur a [partagé la carte de son état](https://twitter.com/IntrListenbourg/status/1587114632061272064) ([Cache de l'image pour la pérennité](img/FgaQNkpX0AEP7cs.jpeg)), vous devez créer un script pour l'intégrer à notre base de données 'Wide World Importers'. En effet, ce nouvel état est une occasion à ne pas louper pour de nouvelles ventes !!
+Un nouveau pays a fait son apparition, le "Listenbourg". Depuis que son ministère de l'intérieur a [partagé la carte de son état](https://twitter.com/IntrListenbourg/status/1587114632061272064) ([Cache de l'image pour la pérennité](img/FgaQNkpX0AEP7cs.jpeg)), vous devez créer un script pour l'intégrer à notre base de données 'Wide World Importers'. En effet, ce nouvel état est une occasion à ne pas louper pour de nouvelles ventes !!
 
 Écrire un script SQL qui :
 
