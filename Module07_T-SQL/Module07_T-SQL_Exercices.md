@@ -27,6 +27,6 @@
 
 - Écrivez un script SQL qui affiche la date du jour dans la console
 - Transférez ce script en chaines de caractères dans une variable `@script`
-- Utilisez l'instruction `EXECUTE` pour afficher la date du jour dans la console
+- Utilisez l'instruction `EXECUTE sp_executesql @script` pour afficher la date du jour dans la console
 - Générez une nouvelle chaine qui contient 10 instructions `PRINT` qui affichent les nombres de 1 à 10 (en utilisant une boucle)
 - Exécutez cette chaine de caractères !
