@@ -36,7 +36,15 @@ Voir le code de la procédure stockée `[Website].[ChangePassword]`.
 
 </details>
 
-## Exercice 4 - Curseurs
+### Exercice 3.4 - Curseurs
 
 - Écrivez une procédure qui insère les noms des utilisateurs débutant par une lettre de `a` à `l` dans la table "UtilisateursAL" et les utilisateurs de `m` à `z` dans la table "UtilisateursMZ". Cette procédure doit utiliser un curseur.
 - Est-ce que vous pouvez faire la même chose sans un curseur ? Si oui, écrivez une nouvelle procédure et comparez les performances.
+
+### Exercice 3.5 - Procédures utilitaires
+
+- Écrivez une procédure qui renvoie la dernière commande d'un client
+- Écrivez une procédure qui renvoie la dernière facture d'un client
+- Écrivez une procédure qui écrit le total d'une commande. Elle affiche "La commande n'existe pas" si la commande n'existe pas. Si la commande existe, elle affiche "La commande numéro 123 a un total de : 12355$"
+- Écrivez une procédure qui renvoie le nombre total de commandes d'un client
+- Écrivez une procédure qui renvoie le nombre total de factures d'un client
