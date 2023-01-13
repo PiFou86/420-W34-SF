@@ -17,7 +17,7 @@
 
 ### Exercice 3.2 - Modification du nom d'utilisateur
 
-Écrivez une procédure stockée qui prend en paramètre l'identifiant d'un utilisateur et un nouveau nom d'utilisateur et qui modifie le nom d'utilisateur de l'utilisateur.
+Écrivez une procédure stockée qui prend en paramètre l'identifiant d'un utilisateur et un nouveau nom d'utilisateur et qui modifie le nom d'utilisateur de l'utilisateur. (Vous devez mettre le champ ValidFrom à la date du jour)
 
 ### Exercice 3.3 - Changement de mot de passe
 
@@ -25,6 +25,7 @@
   - Table `[Application].[People]`
   - Valider l'ancien mot de passe : comparer le mot de passe hashé avec le résultat de l'appel de la fonction `HASHBYTES(N'SHA2_256', @OldPassword + FullName)`
   - Met à jour le mot de passe, c'est à dire le mot de passe hashé avec la valeur `HASHBYTES(N'SHA2_256', @NewPassword + FullName) WHERE Username = @Username`
+  - Met à jour le champ ValidFrom pour la date du jour
   - Met à jour la possibilité de se connecter à la valeur 1
   - Interdit de modifier le mot de passe de l'utilisateur `1`
   - Affiche (avec `PRINT`) si le mot de passe a été modifié ou non
