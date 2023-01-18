@@ -37,7 +37,7 @@
   - `StockItemID` (int, FK vers `Warehouse.StockItems`)
   - `QuantiteCommande` (int)
   - `QuantiteFacture` (int)
-- Créez deux triggers (un pour `InvoiceLine` et `OrderLines`) qui à l'insertion ou la modification d'un enregistrementmet à jour la table `ConciliationCommandeFacture` en fonction de la quantité commandée et facturée
+- Créez deux triggers (un pour `Sales.InvoiceLines` et `Sales.OrderLines`) qui à l'insertion ou la modification d'un enregistrement met à jour la table `ConciliationCommandeFacture` en fonction de la quantité commandée et facturée
 
 ### Exercice 3.2 - Total des factures
 
