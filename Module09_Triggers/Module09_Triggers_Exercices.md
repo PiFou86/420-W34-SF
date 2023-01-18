@@ -23,7 +23,7 @@
   - `Note` entre 12 et 14 : `Appreciation` = `Bien`
   - `Note` entre 14 et 20 : `Appreciation` = `Très bien`
 - Testez votre trigger en insérant des notes dans la table `note`
-- Est-ce que vous pouvez faire en sorte que le trigger ne s'active que si la colonne `Note` est modifiée ? (indice : [`UPDATE`](https://learn.microsoft.com/en-us/sql/t-sql/functions/update-trigger-functions-transact-sql))
+- Est-ce que vous pouvez faire en sorte que le trigger ne fasse pas la mise à jour du champ que si la colonne `Note` est modifiée ? (indice : [`UPDATE`](https://learn.microsoft.com/en-us/sql/t-sql/functions/update-trigger-functions-transact-sql))
 - Testez votre trigger en insérant des notes dans la table `note`
 - Est-ce que l'utilisation d'un trigger est la meilleure solution pour mettre à jour la colonne `Appreciation` ? Pourquoi ? ("Quand on a un marteau, tout devient un clou")
 
