@@ -17,7 +17,7 @@
   - `NoteId` (int, PK, Identity)
   - `Note` (decimal : trois chiffres avant la virgule et deux chiffres après la virgule)
   - `Appreciation` (nvarchar(50))
-- Créez un trigger qui met à jour la colonne `Appreciation` en fonction de la colonne `Note` :
+- Créez un trigger qui met à jour la colonne `Appreciation` en fonction de la colonne `Note` au moment de l'insertion :
   - `Note` entre 0 et 10 : `Appreciation` = `Insuffisant`
   - `Note` entre 10 et 12 : `Appreciation` = `Passable`
   - `Note` entre 12 et 14 : `Appreciation` = `Bien`
@@ -47,7 +47,7 @@
   - `Total` (decimal : trois chiffres avant la virgule et deux chiffres après la virgule)
 - Créez un trigger qui à l'insertion, la modification ou la suppression d'un enregistrement dans `Sales.InvoiceLines` met à jour la table `TotalFacture` en fonction du total de la facture
 
-#### Exercice 3.3 - Événements
+### Exercice 3.3 - Événements
 
 - Créez la table `Evenements` avec les colonnes suivantes :
   - `EvenementId` (int, PK, Identity)
