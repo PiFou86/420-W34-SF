@@ -45,19 +45,19 @@ Grandes étapes :
         - Prends un dépôt de chats en paramètres
       - `GestionAdoptionsBL` : adoption de chats
         - Prends un dépôt de personnes et de chats en paramètres
-    - `GestionAdoptionUI` :
-      - Dépend de `GestionAdoptionBL`, `GestionAdoptionEntite`, `GestionAdoptionDAL_SQLServerEF`
-      - Contient le classe :
-        - `PersonneUI` : interface utilisateur pour la gestion des personnes. Cette classe est instanciée dans le main. Elle contient la logique des menus d'options.
-    - `GestionAdoptionDAL_SQLServerEF` :
-      - Dépend de `GestionAdoptionEntite`, `Microsoft.EntityFrameworkCore.SqlServer`, `Microsoft.Extensions.Configuration.Json`
-      - Contient les classes :
-        - `Personne` : DTO. N'incluez pas la navigation vers la liste des chats adoptés (vous pourrez le faire en option)
-        - `Chat` : DTO. Incluez la navigation vers le propriétaire si adopté
-        - `ApplicationDBContext` : contexte de base de données
-        - `DALDbContextGeneration` : classe qui génère le contexte de base de données. Adaptez la classe fournie en exemple dans le cours
-        - `DepotPersonne` : dépôt de personnes implanté avec EntityFramework
-        - `DepotChat` : dépôt de chats implanté avec EntityFramework
+  - `GestionAdoptionUI` :
+    - Dépend de `GestionAdoptionBL`, `GestionAdoptionEntite`, `GestionAdoptionDAL_SQLServerEF`
+    - Contient le classe :
+      - `PersonneUI` : interface utilisateur pour la gestion des personnes. Cette classe est instanciée dans le main. Elle contient la logique des menus d'options.
+  - `GestionAdoptionDAL_SQLServerEF` :
+    - Dépend de `GestionAdoptionEntite`, `Microsoft.EntityFrameworkCore.SqlServer`, `Microsoft.Extensions.Configuration.Json`
+    - Contient les classes :
+      - `Personne` : DTO. N'incluez pas la navigation vers la liste des chats adoptés (vous pourrez le faire en option)
+      - `Chat` : DTO. Incluez la navigation vers le propriétaire si adopté
+      - `ApplicationDBContext` : contexte de base de données
+      - `DALDbContextGeneration` : classe qui génère le contexte de base de données. Adaptez la classe fournie en exemple dans le cours
+      - `DepotPersonne` : dépôt de personnes implanté avec EntityFramework
+      - `DepotChat` : dépôt de chats implanté avec EntityFramework
 - Débutez par l'affichage des personnes sans aller chercher les chats adoptés. Pour cela, vous devez coder les fonctions nécessaires dans les classes IDepotPersonne, PersonneBL, DepotPersonne et PersonneUI
 - Faites de même pour la liste des chats en affichant le propriétaire s'il est adopté
 - Faites les variants pour les chats adoptés et non adoptés (utilisez votre fonction SQL)
