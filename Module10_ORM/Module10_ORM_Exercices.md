@@ -66,9 +66,11 @@ Grandes étapes :
 
 ## Exercice 2 - Gestion de location de vidéos
 
-Vous avez été mandaté pour développer une application de location de vidéos. Les personnes peuvent louer plusieurs vidéos, mais chaque vidéo ne peut être louée qu'une seule fois par un seul utilisateur (Nous n'avons qu'une licence d'utilisation par vidéo). Vous n'avez pas à gérer les historiques. Une vidéo est louée pour une durée de 7 jours.
+Vous avez été mandaté pour développer une application de location de vidéos. Les personnes peuvent louer plusieurs vidéos, mais chaque vidéo ne peut être louée qu'une seule fois par un seul utilisateur (Nous n'avons qu'une licence d'utilisation par vidéo). Une vidéo ne peut être louée que par une personne vidéo à la fois. Vous n'avez pas à gérer les historiques. Une vidéo est louée pour une durée de 7 jours. Une personne ne peut louer que 5 vidéos maximum en même temps.
 
-Vous devez écrire une application qui permet de saisir des vidéos et de les louer. Vous devez également pouvoir afficher les vidéos louées et les vidéos non louées. Une personne ne peut louer qu'une seule vidéo à la fois. La majorité des validations doivent être faites dans la couche de persistance de données (i.e. la base de données).
+Vous devez écrire une application qui permet de saisir des vidéos et de les louer. Vous devez également pouvoir afficher les vidéos louées et les vidéos non louées.
+
+La majorité des validations doivent être faites dans la couche de persistance de données (i.e. la base de données).
 
 Environnement technique de votre client :
 
