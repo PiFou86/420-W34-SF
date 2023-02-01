@@ -63,3 +63,16 @@ Grandes étapes :
 - Faites les variants pour les chats adoptés et non adoptés (utilisez votre fonction SQL)
 - Codez l'ajout d'une personne et d'un chat à adopter
 - Codez la fonctionnalité d'adoption d'un chat
+
+## Exercice 2 - Gestion de location de vidéos
+
+Vous avez été mandaté pour développer une application de location de vidéos. Les personnes peuvent louer plusieurs vidéos, mais chaque vidéo ne peut être louée qu'une seule fois par un seul utilisateur (Nous n'avons qu'une licence d'utilisation par vidéo). Vous n'avez pas à gérer les historiques. Une vidéo est louée pour une durée de 7 jours.
+
+Vous devez écrire une application qui permet de saisir des vidéos et de les louer. Vous devez également pouvoir afficher les vidéos louées et les vidéos non louées. Une personne ne peut louer qu'une seule vidéo à la fois. La majorité des validations doivent être faites dans la couche de persistance de données (i.e. la base de données).
+
+Environnement technique de votre client :
+
+- Base de données SQL Server
+- .Net 6.0
+- Entity Framework Core
+- Application console
