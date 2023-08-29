@@ -76,5 +76,5 @@ Environnement technique de votre client :
 
 - Base de données SQL Server
 - .Net 6.0
-- Entity Framework Core
+- Entity Framework Core 6.x (Pas la 7.x !)
 - Application console
