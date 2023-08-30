@@ -16,7 +16,7 @@ Les personnes sont identifiées par un identifiant unique, un nom et un prénom.
 - Écrivez une procédure qui renvoie la liste des chats adoptés par une personne
 - Écrivez une procédure qui renvoie la liste des chats non adoptés
 
-## Exercice 1.2 - Création d'une application de gestion d'adoptions
+### Exercice 1.2 - Création d'une application de gestion d'adoptions
 
 En vous inspirant de l'application de démonstration du cours, créez une application qui permet de :
 
