@@ -36,7 +36,7 @@ Grandes étapes :
     - Contient les entités `Personne` et `Chat` :
       - L'entité `Personne` n'inclut pas la liste des chats adoptés (vous pourrez le faire en option)
     - Contient les interfaces `IDepotPersonne` et `IDepotChat` avec les opérations CRUD ainsi que les méthodes `ChatsAdoptesParPersonne` et `ChatsNonAdoptes` qui exécutent les procédures créées précédemment
-  - `GestionAdoptionBL` :
+  - `GestionAdoptionBL` : de type bibliothèque de classes
     - Dépend de `GestionAdoptionEntite`
     - Contient les classes :
       - `PersonneBL` : manipulation de personnes
@@ -45,11 +45,11 @@ Grandes étapes :
         - Prends un dépôt de chats en paramètres
       - `GestionAdoptionsBL` : adoption de chats
         - Prends un dépôt de personnes et de chats en paramètres
-  - `GestionAdoptionUI` :
+  - `GestionAdoptionUI` : de type application console
     - Dépend de `GestionAdoptionBL`, `GestionAdoptionEntite`, `GestionAdoptionDAL_SQLServerEF`
     - Contient le classe :
       - `PersonneUI` : interface utilisateur pour la gestion des personnes. Cette classe est instanciée dans le main. Elle contient la logique des menus d'options.
-  - `GestionAdoptionDAL_SQLServerEF` :
+  - `GestionAdoptionDAL_SQLServerEF` : de type bibliothèque de classes
     - Dépend de `GestionAdoptionEntite`, `Microsoft.EntityFrameworkCore.SqlServer`, `Microsoft.Extensions.Configuration.Json`
     - Contient les classes :
       - `Personne` : DTO. N'incluez pas la navigation vers la liste des chats adoptés (vous pourrez le faire en option)
