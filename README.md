@@ -1,8 +1,15 @@
 # 420-W34-SF - Bases de données avancées
 
+## Quelques liens
+
 - [Conventions de codage](conventions_codage.md)
 - [Module 01 - Introduction](Module01_Introduction/Module01_Introduction_Exercices.md)
 - [Module 02 - Modélisation](Module02_Modelisation/Module02_Modelisation_Exercices.md)
+
+## Crédits
+
+- Pierre-François Léon
+- Karine Filiatreault
 
 Certain contenus sont inspirés ou extrait du travail de collègues dont Karine Filiatreault et Jean-Pierre Duchesneau.
 
