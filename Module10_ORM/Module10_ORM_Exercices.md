@@ -30,7 +30,7 @@ En vous inspirant de l'application de démonstration du cours, créez une applic
 
 Grandes étapes :
 
-- Créez la solution `Module10_ORM_GestionAdoptions` avec le projet `GestionAdoptionsUI` de type `Console`
+- Créez la solution `Module10_ORM_GestionAdoptions` avec le projet `GestionAdoptionUI` de type `Console`
 - Ajoutez les projets :
   - `GestionAdoptionEntite` : de type bibliothèque de classes
     - Contient les entités `Personne` et `Chat` :
@@ -43,7 +43,7 @@ Grandes étapes :
         - Prend un dépôt de personnes en paramètres
       - `ChatBL` : manipulation des chats
         - Prends un dépôt de chats en paramètres
-      - `GestionAdoptionsBL` : adoption de chats
+      - `GestionAdoptionBL` : adoption de chats
         - Prends un dépôt de personnes et de chats en paramètres
   - `GestionAdoptionUI` : de type application console
     - Dépend de `GestionAdoptionBL`, `GestionAdoptionEntite`, `GestionAdoptionDAL_SQLServerEF`

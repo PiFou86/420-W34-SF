@@ -1,5 +1,9 @@
 # Module 07 - T-SQL
 
+## Pré-requis
+
+Matériel requis : summit.sql (à exécuter avant de commencer si nécessaire)
+
 ## Exercice 1 - Expérience avec "GO"
 
 Écrivez un script SQL qui :
@@ -13,17 +17,37 @@
 ## Exercice 2 - Vive les boucles !
 
 - Écrivez un script SQL qui affiche les nombres de 1 à 10 dans la console.
-- Modifiez le script précédent pour afficher les nombres de 1 à 100 dans la console.
 - Modifier le script précédent pour afficher en plus si le nombre est pair ou impair.
-- Écrivez un nouveau script qui affiche les nombres de 100 à 1 dans la console.
 
-## Exercice 3 - Palindrome
+## Exercice 3 - Summit.sql
+
+### Exercice 3.1 - Statistiques sur les salaires
+
+Écrivez un script qui compte et affiche le nombre d'employés ayant un salaire de moins de 1000 $ et le nombre d'employés gagnant 1000 $ et plus. Voici un exemple de sortie :
+
+```
+Employés gagnant moins de 1000 $ :
+7
+Employés gagnant 1000 $ et plus :
+18
+```
+
+### Exercice 3.2 - Meilleur vendeur
+
+Écrivez un script qui affiche le meilleur vendeur de la compagnie, c'est-à-dire celui dont le total des ventes est le plus élevé.
+
+```
+L'employé ayant vendu le plus est: Magee, Colin
+et il a vendu 1629066.37$
+```
+
+## Exercice 4 - Palindrome
 
 - Déclarez une variable `@mot` de type `varchar(50)`
 - Mettez la variable `@mot` à `engagelejeuquejelegagne` (oui, c'est un palindrome)
 - Écrivez un script SQL qui affiche le mot `@mot` dans la console et qui affiche si le mot est un palindrome ou non.
 
-## Exercice 4 - Execution de chaines
+## Exercice 5 - Execution de chaines - Optionel
 
 - Écrivez un script SQL qui affiche la date du jour dans la console
 - Transférez ce script en chaines de caractères dans une variable `@script`
