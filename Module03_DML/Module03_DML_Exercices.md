@@ -101,7 +101,7 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
   11. Écrivez une requête d'insertion qui remplit la nouvelle table
   12. Ajoutez une clause à votre requête qui vous évite les erreurs d'insertion à la deuxième exécution de la requête.
 
-## Exercice 4 - Summit
+## Exercice 4 - Summit (Optionnel - Exercices en plus)
 
 ### Exercice 4.1 - Importation de la base de données
 
@@ -167,7 +167,7 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
 13. Affichez pour chacun des produits, la quantité totale commandée. L'affichage doit inclure chaque nom de produit et la quantité totale commandée pour chacun de ces produits. Ne retourner que les enregistrements dont la quantité totale commandée est supérieure à 500. (4 enregistrements)
 14. Affichez le nom des employés avec le nombre de clients gérés par chaque employé. (5 enregistrements)
 
-## Exercice 5 - Importation des données #1 - Zonage municipal - Zones
+## Exercice 5 - Importation des données #1 - Zonage municipal - Zones (Cours 3/3)
 
 ### Exercice 5.1 - Préparation de l'importation
 
