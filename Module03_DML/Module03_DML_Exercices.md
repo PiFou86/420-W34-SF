@@ -15,7 +15,7 @@ La base de données "Wide World Importers" est décrite dans la documentation :
 ### Préalable 1.1 - Téléchargement de la base de données
 
 - Téléchargez le [fichier zip ici](https://1drv.ms/u/s!AmZSjqmP5Ux1kaQW7lYjSAsH89pDmw?e=XTOVOG)
-- Désarchivez le fichier dans le répertoire ```C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup```
+- Désarchivez le fichier dans le répertoire ```C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup```
 
 ### Préalable 1.2 - Restoration de la base de données
 
