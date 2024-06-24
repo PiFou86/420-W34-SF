@@ -217,5 +217,5 @@ FROM importation_vdq_zonagemunicipalzones_01
 4. Effectuer la même chose pour la deuxième table d'importation. Posez-vous les questions suivantes :
   1. Qu'avez-vous fait des enregistrements présents dans la source mais pas dans la destination ?
   2. Qu'avez-vous fait des enregistrements présents dans la destination mais pas dans la source ?
-  3. Comment réagissez-vous l'action à prendre si la zone existe ?
+  3. Comment réagissez-vous l'action à prendre si la zone existe ? # La phrase est bizarre ici!
 5. Modifiez votre fichier SQL afin que vous puissiez l'exécuter sans erreur à chaque exécution : la BD doit être supprimée et recréée à chaque exécution par exemple
