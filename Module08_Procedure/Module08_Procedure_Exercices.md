@@ -85,7 +85,7 @@ afffiche 339094.71
   - Met à jour le mot de passe, c'est à dire le mot de passe hashé avec la valeur `HASHBYTES(N'SHA2_256', @NewPassword + FullName) WHERE Username = @Username`
   - Met à jour le champ ValidFrom pour la date du jour
   - Met à jour la possibilité de se connecter à la valeur 1
-  - Interdit de modifier le mot de passe de l'utilisateur `1`
+  - Interdit de modifier le mot de passe de l'utilisateur d'indentifiant `1`
   - Affiche (avec `PRINT`) si le mot de passe a été modifié ou non
 
 <details>
