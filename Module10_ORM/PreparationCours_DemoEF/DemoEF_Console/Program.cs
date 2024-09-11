@@ -1,10 +1,15 @@
 ﻿using DemoEF_Entite;
 using DemoEF_CasUtilisation;
 using DemoEF_Console;
+using DemoEF_Framework;
 
 //     "PersonnesConnection" : "Data source=localhost:1521/orcl; User Id=pfleon; Password=Bonjour01.+;"
 // IManipulationPersonneFactory manipulationPersonneFactory = new ManipulationPersonneOracleFactory();
 //     "PersonnesConnection" : "Server=.;Database=Module10_ORM;Trusted_Connection=True;MultipleActiveResultSets=true"
+
+
+//ConsoleExtensions.EntitleMessage("Un texte répond de façon plus ou moins pertinente à des critères qui en déterminent la qualité littéraire. On retient en particulier la structure d'ensemble, la syntaxe et la ponctuation, l'orthographe lexicale et grammaticale, la pertinence et la richesse du vocabulaire, la présence de figures de style, le registre de langue et la fonction recherchée (narrative, descriptive, expressive, argumentative, injonctive, poétique). C'est l'objet de l'analyse littéraire.");
+
 IManipulationPersonneFactory manipulationPersonneFactory = new ManipulationPersonneSQLServerFactory();
 
 // Projection de données de la BD
@@ -14,26 +19,30 @@ DemoObtenirPersonnesEnRecuperantAdresses();
 // Ajout de personnes (INSERT)
 DemoAjoutPersonneSansAdresse();
 DemoObtenirPersonnesEnRecuperantAdresses();
-Console.In.ReadLine();
+ConsoleExtensions.WaitForEnterKey();
 
 DemoAjoutPersonneAvecAdresse();
 DemoObtenirPersonnesEnRecuperantAdresses();
-Console.In.ReadLine();
+ConsoleExtensions.WaitForEnterKey();
+
 DemoAjoutPersonneAvecAdresseRollback();
 DemoObtenirPersonnesEnRecuperantAdresses();
-Console.In.ReadLine();
+ConsoleExtensions.WaitForEnterKey();
+
 
 // Appel de fonction SQL
 DemoRechercherAdressesContenantUnMot();
-Console.In.ReadLine();
+ConsoleExtensions.WaitForEnterKey();
 
 // Modification d'une personne (adresse ici)
 DemoModificationPersonneAvecAdresse();
 DemoObtenirPersonnesEnRecuperantAdresses();
 
+
+
 void DemoObtenirPersonnesSansRecupererAdresse()
 {
-    Console.Out.WriteLine("DemoObtenirPersonnesSansRecupererAdresse");
+    ConsoleExtensions.EntitleMessage("Démonstration obtenir les personnes sans récuperer les adresses", ConsoleColor.Blue, ConsoleColor.White);
 
     using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
@@ -46,7 +55,7 @@ void DemoObtenirPersonnesSansRecupererAdresse()
 
 void DemoObtenirPersonnesEnRecuperantAdresses()
 {
-    Console.Out.WriteLine("DemoObtenirPersonnesEnRecuperantAdresses");
+    ConsoleExtensions.EntitleMessage("Démonstration obtenir les personnes avec récupération des adresses", ConsoleColor.Blue, ConsoleColor.White);
 
     using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {
@@ -59,7 +68,7 @@ void DemoObtenirPersonnesEnRecuperantAdresses()
 
 void DemoAjoutPersonneSansAdresse()
 {
-    Console.Out.WriteLine("DemoAjoutPersonneSansAdresse");
+    ConsoleExtensions.EntitleMessage("Démonstration de l'ajout d'une personne sans adresse", ConsoleColor.Blue, ConsoleColor.White);
 
     Personne personneSansAdresse = GenerateurDonnees.GenererPersonne(p_inclureAdresse: false);
     Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneSansAdresse.PersonneId}");
@@ -73,7 +82,7 @@ void DemoAjoutPersonneSansAdresse()
 
 void DemoAjoutPersonneAvecAdresse()
 {
-    Console.Out.WriteLine("DemoAjoutPersonneAvecAdresse");
+    ConsoleExtensions.EntitleMessage("Démonstration de l'ajout d'une personne avec une adresse", ConsoleColor.Blue, ConsoleColor.White);
 
     Personne personneAvecAdresse = GenerateurDonnees.GenererPersonne(p_inclureAdresse: true);
     Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneAvecAdresse.PersonneId}");
@@ -96,7 +105,7 @@ void DemoAjoutPersonneAvecAdresse()
 
 void DemoAjoutPersonneAvecAdresseRollback()
 {
-    Console.Out.WriteLine("DemoAjoutPersonneAvecAdresseRollback");
+    ConsoleExtensions.EntitleMessage("Démonstration de l'ajout d'une personne avec adresse mais avec ROLLBACK", ConsoleColor.Blue, ConsoleColor.White);
 
     Personne personneAvecAdresse = GenerateurDonnees.GenererPersonne(p_inclureAdresse: true);
     Console.Out.WriteLine($"Tentative d'ajout d'une peronne : {personneAvecAdresse.PersonneId}");
@@ -120,7 +129,7 @@ void DemoAjoutPersonneAvecAdresseRollback()
 
 void DemoModificationPersonneAvecAdresse()
 {
-    Console.Out.WriteLine("DemoModificationPersonneAvecAdresse");
+    Console.Out.WriteLine("Démonstration de la modification d'une personne avec une adresse", ConsoleColor.Blue, ConsoleColor.White);
 
     Personne personneAvecAdresse = GenerateurDonnees.GenererPersonne(p_inclureAdresse: true);
     try
@@ -147,7 +156,7 @@ void DemoModificationPersonneAvecAdresse()
 
 void DemoRechercherAdressesContenantUnMot()
 {
-    Console.Out.WriteLine("DemoRechercherAdressesContenantUnMot");
+    ConsoleExtensions.EntitleMessage("Démonstration de la recherche d'adresses contenant un mot en utilisant une requête et en utilisant la procédure stockée", ConsoleColor.Blue, ConsoleColor.White);
 
     using (ManipulationPersonnes mp = manipulationPersonneFactory.Creer())
     {

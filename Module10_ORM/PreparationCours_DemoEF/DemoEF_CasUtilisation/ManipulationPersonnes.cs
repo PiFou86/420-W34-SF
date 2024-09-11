@@ -1,4 +1,5 @@
 ﻿using DemoEF_Entite;
+using DemoEF_Framework;
 
 namespace DemoEF_CasUtilisation;
 
@@ -65,10 +66,12 @@ public class ManipulationPersonnes : IDisposable
         }
         catch (System.Exception ex)
         {
-            Console.Out.WriteLine("Transaction annulée !");
-            Console.Error.WriteLine(ex.Message);
+            ConsoleExtensions.DumpException(ex);
+
+            // Compensation en cas d'erreur : rollback
             this.m_transaction.Rollback();
 
+            // On fait remonter l'erreur : normalement on encapsulerait l'erreur dans une erreur plus propre pour les couches plus hautes
             throw;
         }
     }
@@ -107,6 +110,7 @@ public class ManipulationPersonnes : IDisposable
                 Adresse? adresseBD = this.m_depotAdresse.Obtenir(adresse.AdresseId);
                 if (adresseBD is null)
                 {
+                    adresse.ProprietaireAdresseId = p_personne.PersonneId;
                     this.m_depotAdresse.AjouterAdresse(adresse);
                 }
 
@@ -119,10 +123,12 @@ public class ManipulationPersonnes : IDisposable
         }
         catch (System.Exception ex)
         {
-            Console.Out.WriteLine("Transaction annulée !");
-            Console.Error.WriteLine(ex.Message);
+            ConsoleExtensions.DumpException(ex);
+
+            // Compensation en cas d'erreur : rollback
             this.m_transaction.Rollback();
 
+            // On fait remonter l'erreur : normalement on encapsulerait l'erreur dans une erreur plus propre pour les couches plus hautes
             throw;
         }
     }
