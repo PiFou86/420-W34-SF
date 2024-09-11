@@ -82,9 +82,13 @@ GO
 CREATE OR ALTER TRIGGER TR_PersonneU_Historisation
 ON Personne AFTER UPDATE
 AS
+	SET NOCOUNT ON;
+
 	INSERT INTO PersonneHistorique(PersonneId, Nom, Prenom, AdresseActuelleId, UpdateDate, UpdateBy)
 	SELECT PersonneId, Nom, Prenom, AdresseActuelleId, GETDATE(),  SUSER_SNAME()
 	FROM deleted
+
+	SET NOCOUNT OFF;
 GO
 
 
