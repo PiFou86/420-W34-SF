@@ -47,7 +47,7 @@ Grandes étapes :
         - Prends un dépôt de personnes et de chats en paramètres
   - `GestionAdoptionUI` : de type application console
     - Dépend de `GestionAdoptionBL`, `GestionAdoptionEntite`, `GestionAdoptionDAL_SQLServerEF`
-    - Contient le classe :
+    - Contient la classe :
       - `PersonneUI` : interface utilisateur pour la gestion des personnes. Cette classe est instanciée dans le main. Elle contient la logique des menus d'options.
   - `GestionAdoptionDAL_SQLServerEF` : de type bibliothèque de classes
     - Dépend de `GestionAdoptionEntite`, `Microsoft.EntityFrameworkCore.SqlServer`, `Microsoft.Extensions.Configuration.Json`

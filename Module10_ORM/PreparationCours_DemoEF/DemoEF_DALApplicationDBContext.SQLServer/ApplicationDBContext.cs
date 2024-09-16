@@ -1,6 +1,7 @@
 ﻿using DemoEF_DALApplicationDBContext.SQLServer.DTO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Reflection.Metadata;
 
 namespace DemoEF_DALApplicationDBContext.SQLServer
 {
@@ -12,9 +13,19 @@ namespace DemoEF_DALApplicationDBContext.SQLServer
             ;
         }
 
+        // Ajout pour EF 7 et 8
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Personne>()
+                .ToTable(tb => tb.HasTrigger("TR_PersonneU_Historisation"));
+
+            base.OnModelCreating(modelBuilder);
+
+        }
+
         // Éviter les problèmes de null : https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types
-        public DbSet<Personne> Personne => Set<Personne>(); // { get; set; }
-        public DbSet<Adresse> Adresse => Set<Adresse>();  // { get; set; }
+        public DbSet<Personne> Personne => Set<Personne>();
+        public DbSet<Adresse> Adresse => Set<Adresse>();
 
         public List<Adresse> ObtenirAdressesPourVilleContenant(string p_partieNomVille)
         {

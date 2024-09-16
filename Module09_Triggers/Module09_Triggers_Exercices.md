@@ -45,7 +45,7 @@
   - `TotalFactureId` (int, PK, Identity)
   - `InvoiceId` (int, FK vers `Sales.Invoices`)
   - `Total` (decimal : trois chiffres avant la virgule et deux chiffres après la virgule)
-- Créez un trigger qui à l'insertion, la modification ou la suppression d'un enregistrement dans `Sales.InvoiceLines` met à jour la table `TotalFacture` en fonction du total de la facture
+- Créez un/des triggers qui à l'insertion, la modification ou la suppression d'un enregistrement dans `Sales.InvoiceLines` met à jour la table `TotalFacture` en fonction du total de la facture
 
 ### Exercice 3.3 - Événements
 
