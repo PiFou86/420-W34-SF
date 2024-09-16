@@ -35,7 +35,7 @@ Grandes étapes :
   - `GestionAdoptionEntite` : de type bibliothèque de classes
     - Contient les entités `Personne` et `Chat` :
       - L'entité `Personne` n'inclut pas la liste des chats adoptés (vous pourrez le faire en option)
-    - Contient les interfaces `IDepotPersonne` et `IDepotChat` avec les opérations CRUD ainsi que les méthodes `ChatsAdoptesParPersonne` et `ChatsNonAdoptes` qui exécutent les procédures créées précédemment
+    - Contient les interfaces `IDepotPersonne` et `IDepotChat` avec les opérations CRUD ainsi que les méthodes `ObtenirChatsAdoptesParPersonne` et `ObtenirChatsNonAdoptes` qui exécutent les procédures créées précédemment
   - `GestionAdoptionBL` : de type bibliothèque de classes
     - Dépend de `GestionAdoptionEntite`
     - Contient les classes :
