@@ -75,6 +75,6 @@ La majorité des validations doivent être faites dans la couche de persistance 
 Environnement technique de votre client :
 
 - Base de données SQL Server
-- .Net 6.0
-- Entity Framework Core 6.x (Pas la 7.x !)
+- .Net 8.0
+- Entity Framework Core 8.x
 - Application console
