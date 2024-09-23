@@ -10,7 +10,7 @@ namespace DemoEF_DALApplicationDBContext.SQLServer
         private IDbContextTransaction? m_transaction;
         public ApplicationDBContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
-            ;
+            Console.Out.WriteLine("ApplicationDBContext.ctor(...)");
         }
 
         // Ajout pour EF 7 et 8
@@ -65,6 +65,7 @@ namespace DemoEF_DALApplicationDBContext.SQLServer
 
         public override void Dispose()
         {
+            Console.Out.WriteLine("ApplicationDBContext.Dispose");
             this.m_transaction?.Dispose();
             this.m_transaction = null;
             base.Dispose();

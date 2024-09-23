@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoEF_CasUtilisation", "De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoEF_DALApplicationDBContext.SQLServer", "DemoEF_DALApplicationDBContext.SQLServer\DemoEF_DALApplicationDBContext.SQLServer.csproj", "{BA15EB6A-58D8-4A68-A391-914CACAEBF3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoEF_Framework", "DemoEF_Framework\DemoEF_Framework.csproj", "{8F86D9B1-EB69-463F-911C-BC7D7BBD052D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoEF_Framework", "DemoEF_Framework\DemoEF_Framework.csproj", "{8F86D9B1-EB69-463F-911C-BC7D7BBD052D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoEF_Console_InjectionDependances", "DemoEF_Console_InjectionDependances\DemoEF_Console_InjectionDependances.csproj", "{C5CBE3B8-F33E-46E4-855C-0A1447355679}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{8F86D9B1-EB69-463F-911C-BC7D7BBD052D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F86D9B1-EB69-463F-911C-BC7D7BBD052D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F86D9B1-EB69-463F-911C-BC7D7BBD052D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5CBE3B8-F33E-46E4-855C-0A1447355679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5CBE3B8-F33E-46E4-855C-0A1447355679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5CBE3B8-F33E-46E4-855C-0A1447355679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5CBE3B8-F33E-46E4-855C-0A1447355679}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

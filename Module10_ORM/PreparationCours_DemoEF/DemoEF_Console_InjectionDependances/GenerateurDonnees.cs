@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoEF_Console
+namespace DemoEF_Console_InjectionDependances
 {
     internal class GenerateurDonnees
     {
