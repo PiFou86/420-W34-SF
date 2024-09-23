@@ -35,7 +35,7 @@ Grandes étapes :
   - `GestionAdoptionEntite` : de type bibliothèque de classes
     - Contient les entités `Personne` et `Chat` :
       - L'entité `Personne` n'inclut pas la liste des chats adoptés (vous pourrez le faire en option)
-    - Contient les interfaces `IDepotPersonne` et `IDepotChat` avec les opérations CRUD ainsi que les méthodes `ChatsAdoptesParPersonne` et `ChatsNonAdoptes` qui exécutent les procédures créées précédemment
+    - Contient les interfaces `IDepotPersonne` et `IDepotChat` avec les opérations CRUD ainsi que les méthodes `ObtenirChatsAdoptesParPersonne` et `ObtenirChatsNonAdoptes` qui exécutent les procédures créées précédemment
   - `GestionAdoptionBL` : de type bibliothèque de classes
     - Dépend de `GestionAdoptionEntite`
     - Contient les classes :
@@ -47,7 +47,7 @@ Grandes étapes :
         - Prends un dépôt de personnes et de chats en paramètres
   - `GestionAdoptionUI` : de type application console
     - Dépend de `GestionAdoptionBL`, `GestionAdoptionEntite`, `GestionAdoptionDAL_SQLServerEF`
-    - Contient le classe :
+    - Contient la classe :
       - `PersonneUI` : interface utilisateur pour la gestion des personnes. Cette classe est instanciée dans le main. Elle contient la logique des menus d'options.
   - `GestionAdoptionDAL_SQLServerEF` : de type bibliothèque de classes
     - Dépend de `GestionAdoptionEntite`, `Microsoft.EntityFrameworkCore.SqlServer`, `Microsoft.Extensions.Configuration.Json`
@@ -75,6 +75,6 @@ La majorité des validations doivent être faites dans la couche de persistance 
 Environnement technique de votre client :
 
 - Base de données SQL Server
-- .Net 6.0
-- Entity Framework Core 6.x (Pas la 7.x !)
+- .Net 8.0
+- Entity Framework Core 8.x
 - Application console
