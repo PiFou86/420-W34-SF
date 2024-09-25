@@ -13,3 +13,7 @@ Si nous ne faisons pas cela, la couche affaire va être polluée par les attribu
 ## Design de l'application
 
 ![Design de l'application](./Design/Design.png)
+
+## Diagramme de dépendances de l'exemple
+
+![Diagramme de dépendances](https://github.com/user-attachments/assets/0b782b98-6edd-40d0-aac9-5288ce828773)
