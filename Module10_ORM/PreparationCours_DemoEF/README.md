@@ -16,4 +16,5 @@ Si nous ne faisons pas cela, la couche affaire va être polluée par les attribu
 
 ## Diagramme de dépendances de l'exemple
 
-![Diagramme de dépendances](https://github.com/user-attachments/assets/0b782b98-6edd-40d0-aac9-5288ce828773)
+![image](https://github.com/user-attachments/assets/4eb08ab7-ff27-490d-a902-b6ede9e86022)
+
