@@ -16,7 +16,7 @@
         public string Nom { get; private set; }
         public string Prenom { get; private set; }
         public List<Adresse> Adresses { get; private set; }
-        public int? AdresseActuelleId { get; set; }
+        public int? AdresseActuelleId { get; private set; }
         private Adresse? m_adresseActuelle;
         public Adresse? AdresseActuelle
         {
