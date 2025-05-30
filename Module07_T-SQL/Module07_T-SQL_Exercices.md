@@ -11,7 +11,7 @@ Matériel requis : summit.sql (à exécuter avant de commencer si nécessaire)
 - déclare une variable `@i` de type `int`
 - mettez la variable `@i` à 42
 - affiche la valeur de la variable `@i` dans la console
-- ajoute l'instruction `GO`
+- ajoute l'instruction `GO` directement après la déclaration/affectation de votre variable.
 - affiche de nouveau la valeur de la variable `@i` dans la console : que constatez-vous ?
 
 ## Exercice 2 - Vive les boucles !
@@ -23,7 +23,7 @@ Matériel requis : summit.sql (à exécuter avant de commencer si nécessaire)
 
 ### Exercice 3.1 - Statistiques sur les salaires
 
-Écrivez un script qui compte et affiche le nombre d'employés ayant un salaire de moins de 1000 $ et le nombre d'employés gagnant 1000 $ et plus. Voici un exemple de sortie :
+Écrivez un script qui compte et affiche dans la console le nombre d'employés ayant un salaire de moins de 1000 $ et le nombre d'employés gagnant 1000 $ et plus. Voici un exemple de sortie :
 
 ```
 Employés gagnant moins de 1000 $ :
@@ -34,7 +34,7 @@ Employés gagnant 1000 $ et plus :
 
 ### Exercice 3.2 - Meilleur vendeur
 
-Écrivez un script qui affiche le meilleur vendeur de la compagnie, c'est-à-dire celui dont le total des ventes est le plus élevé.
+Écrivez un script qui affiche dans la console le meilleur vendeur de la compagnie, c'est-à-dire celui dont le total des ventes est le plus élevé.
 
 ```
 L'employé ayant vendu le plus est: Magee, Colin
