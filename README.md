@@ -6,6 +6,13 @@
 - [Module 01 - Introduction](Module01_Introduction/Module01_Introduction_Exercices.md)
 - [Module 02 - Modélisation](Module02_Modelisation/Module02_Modelisation_Exercices.md)
 
+
+## Configuration de Visual Studio
+
+Sauf avis contraire, l'utilisation d'IA n'est pas autorisée pour les évaluations et est fortement déconseillée pour la réalisation des exercices.
+
+Voici une procédure minimale à exécuter pour le cours : https://github.com/PiFou86/420-WXX-SF-Configuration-VisualStudio/tree/main
+
 ## Crédits
 
 - Pierre-François Léon
