@@ -1,5 +1,6 @@
 ﻿// Enlever le commentaire pour tester la version service
 //#define Version_Service
+#define DI_AvecMethodeExtension
 
 // Ajoutez le package nuget Microsoft.Extensions.Hosting
 // Ajoutez le package nuget Microsoft.Extensions.Configuration.Json
@@ -43,6 +44,11 @@ string connectionString = builder.Configuration.GetConnectionString("PersonnesCo
 // AddDbContext est une méthode d'extension qui provient de l'asembly Microsoft.EntityFrameworkCore
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseSqlServer(connectionString));
+
+///////// À la main ///////
+#if DI_AvecMethodeExtension
+builder.Services.AddDemoEFConfigDI();
+#else
 // Ajout des correspondances pour les IDepotXYZ
 builder.Services.AddScoped<IDepotAdresse, DepotAdresseEF>();
 builder.Services.AddScoped<IDepotPersonne, DepotPersonneEF>();
@@ -54,6 +60,7 @@ builder.Services.AddScoped<ITransactionBD>(provider => provider.GetService<Appli
 // Ajout du type ManipulationPersonnes afin qu'il soit connu du moteur
 builder.Services.AddScoped<ManipulationPersonnes>();
 builder.Services.AddSingleton<MonApplication>();
+#endif
 
 // Pour le transformer en service
 #if Version_Service
