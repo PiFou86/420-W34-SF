@@ -1,0 +1,12 @@
+@startuml
+class Adresse {
+    + AdresseId : int <<get>> <<set>> = 0
+    + ProprietaireAdresseId : int <<get>> <<set>> = 0
+    + NumeroCivique : string <<get>> <<set>> = ""
+    + Odonyme : string <<get>> <<set>> = ""
+    + Ville : string <<get>> <<set>> = ""
+    + Adresse()
+    + Adresse(p_adresse:Entite.Adresse)
+    + VersEntite() : Entite.Adresse
+}
+@enduml

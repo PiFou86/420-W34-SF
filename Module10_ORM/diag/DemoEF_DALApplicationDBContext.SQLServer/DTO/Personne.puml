@@ -1,0 +1,13 @@
+@startuml
+class Personne {
+    + PersonneId : int <<get>> <<set>> = 0
+    + Nom : string <<get>> <<set>> = ""
+    + Prenom : string <<get>> <<set>> = ""
+    + AdresseActuelleId : int? <<get>> <<set>>
+    + Personne()
+    + Personne(p_entity:Entite.Personne)
+    + VersEntite() : Entite.Personne
+}
+Personne --> "AdresseActuelle" Adresse
+Personne --> "Adresses<Adresse>" "List`1"
+@enduml

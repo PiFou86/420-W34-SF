@@ -1,0 +1,6 @@
+@startuml
+class ManipulationPersonneSQLServerFactory {
+    + Creer() : ManipulationPersonnes
+}
+IManipulationPersonneFactory <|-- ManipulationPersonneSQLServerFactory
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+class ManipulationPersonnes {
+    + ManipulationPersonnes(p_depotPersonne:IDepotPersonne, p_depotAdresse:IDepotAdresse, p_transaction:ITransactionBD)
+    + ObtenirPersonnes(inclureAdresse:bool) : List<Personne>
+    + AjouterPersonne(p_personne:Personne) : void
+    + MAJPersonne(p_personne:Personne) : void
+    + RechercherAdresseParRequete(p_partieNomVille:string) : List<Adresse>
+    + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Adresse>
+    + Dispose() : void
+}
+IDisposable <|-- ManipulationPersonnes
+@enduml

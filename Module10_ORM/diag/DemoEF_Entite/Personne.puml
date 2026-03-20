@@ -1,0 +1,14 @@
+@startuml
+class Personne {
+    + Personne(p_personneId:int, p_nom:string, p_prenom:string, p_adresseActuelleId:int?, p_adresseActuelle:Adresse?, p_adresses:List<Adresse>?)
+    + PersonneId : int <<get>> <<set>>
+    + Nom : string <<get>>
+    + Prenom : string <<get>>
+    + AdresseActuelleId : int? <<get>> <<set>>
+    + <<override>> ToString() : string
+}
+class "List`1"<T> {
+}
+Personne --> "Adresses<Adresse>" "List`1"
+Personne --> "AdresseActuelle" Adresse
+@enduml

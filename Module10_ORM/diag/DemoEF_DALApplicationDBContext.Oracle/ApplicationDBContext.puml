@@ -1,0 +1,16 @@
+@startuml
+class ApplicationDBContext {
+    + ApplicationDBContext(dbContextOptions:DbContextOptions)
+    + ObtenirAdressesPourVilleContenant(p_partieNomVille:string) : List<Adresse>
+    + BeginTransaction() : void
+    + Commit() : void
+    + Rollback() : void
+    + <<override>> Dispose() : void
+}
+class "DbSet`1"<T> {
+}
+DbContext <|-- ApplicationDBContext
+ITransactionBD <|-- ApplicationDBContext
+ApplicationDBContext --> "Personnes<Personne>" "DbSet`1"
+ApplicationDBContext --> "Adresses<Adresse>" "DbSet`1"
+@enduml

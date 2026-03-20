@@ -1,0 +1,169 @@
+@startuml
+interface IManipulationPersonneFactory {
+}
+class ManipulationPersonneSQLServerFactory {
+    + Creer() : ManipulationPersonnes
+}
+IManipulationPersonneFactory <|-- ManipulationPersonneSQLServerFactory
+class GenerateurDonnees {
+    + {static} GenererPersonne(p_inclureAdresse:bool) : Personne
+    + {static} GenererAdresseAleatoire(p_idPersonne:int) : Adresse
+}
+class "List`1"<T> {
+}
+class DepotPersonneEF {
+    + DepotPersonneEF(p_dbContext:ApplicationDBContext)
+    + AjouterPersonne(p_personne:Entite.Personne) : void
+    + Dispose() : void
+    + MAJPersonne(p_personne:Entite.Personne) : void
+    + ObtenirPersonnes(inclureAdresse:bool) : List<Entite.Personne>
+    + ObtenirPersonne(p_personneId:int, inclureAdresse:bool) : Entite.Personne?
+}
+class DALDbContextGeneration <<static>> {
+    + {static} ObtenirApplicationDBContext() : ApplicationDBContext
+}
+class ApplicationDBContext {
+    + ApplicationDBContext(dbContextOptions:DbContextOptions)
+    + ObtenirAdressesPourVilleContenant(p_partieNomVille:string) : List<Adresse>
+    + BeginTransaction() : void
+    + Commit() : void
+    + Rollback() : void
+    + <<override>> Dispose() : void
+}
+class "DbSet`1"<T> {
+}
+DbContext <|-- ApplicationDBContext
+ITransactionBD <|-- ApplicationDBContext
+ApplicationDBContext --> "Personne<Personne>" "DbSet`1"
+ApplicationDBContext --> "Adresse<Adresse>" "DbSet`1"
+class DepotAdresseEF {
+    + DepotAdresseEF(p_dbContext:ApplicationDBContext)
+    + AjouterAdresse(p_adresse:Entite.Adresse) : void
+    + Dispose() : void
+    + Obtenir(p_id:int) : Entite.Adresse?
+    + RechercherAdresseParRequete(p_partieNomVille:string) : List<Entite.Adresse>
+    + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Entite.Adresse>
+}
+class ManipulationPersonnes {
+    + ManipulationPersonnes(p_depotPersonne:IDepotPersonne, p_depotAdresse:IDepotAdresse, p_transaction:ITransactionBD)
+    + ObtenirPersonnes(inclureAdresse:bool) : List<Personne>
+    + AjouterPersonne(p_personne:Personne) : void
+    + MAJPersonne(p_personne:Personne) : void
+    + RechercherAdresseParRequete(p_partieNomVille:string) : List<Adresse>
+    + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Adresse>
+    + Dispose() : void
+}
+IDisposable <|-- ManipulationPersonnes
+class Adresse {
+    + Adresse(p_adresseId:int, p_proprietaireAdresseId:int, p_numeroCivique:string, p_odonyme:string, p_ville:string)
+    + AdresseId : int <<get>> <<set>>
+    + ProprietaireAdresseId : int <<get>> <<set>>
+    + NumeroCivique : string <<get>>
+    + Odonyme : string <<get>>
+    + Ville : string <<get>>
+    + <<override>> ToString() : string
+}
+interface IDepotAdresse {
+    + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Adresse>
+}
+IDisposable <|-- IDepotAdresse
+interface ITransactionBD {
+}
+IDisposable <|-- ITransactionBD
+class Personne {
+    + Personne(p_personneId:int, p_nom:string, p_prenom:string, p_adresseActuelleId:int?, p_adresseActuelle:Adresse?, p_adresses:List<Adresse>?)
+    + PersonneId : int <<get>> <<set>>
+    + Nom : string <<get>>
+    + Prenom : string <<get>>
+    + AdresseActuelleId : int? <<get>> <<set>>
+    + <<override>> ToString() : string
+}
+class "List`1"<T> {
+}
+Personne --> "Adresses<Adresse>" "List`1"
+Personne --> "AdresseActuelle" Adresse
+interface IDepotPersonne {
+}
+IDisposable <|-- IDepotPersonne
+class ConsoleExtensions <<static>> {
+    + {static} DumpException(exception:Exception, includeFirsStacktrace:bool) : void
+    + {static} ChangeForegroundColorTo(color:ConsoleColor) : void
+    + {static} ChangeForegroundToPreviousColor() : void
+    + {static} WaitForEnterKey() : void
+    + {static} EntitleMessage(message:string?, foregroundColor:ConsoleColor, backgroundColor:ConsoleColor) : void
+}
+class DepotPersonneEF {
+    + DepotPersonneEF(p_dbContext:ApplicationDBContext)
+    + AjouterPersonne(p_personne:Entite.Personne) : void
+    + Dispose() : void
+    + MAJPersonne(p_personne:Entite.Personne) : void
+    + ObtenirPersonnes(inclureAdresse:bool) : List<Entite.Personne>
+    + ObtenirPersonne(p_personneId:int, inclureAdresse:bool) : Entite.Personne?
+}
+class DALDbContextGeneration <<static>> {
+    + {static} ObtenirApplicationDBContext() : ApplicationDBContext
+}
+class ApplicationDBContext {
+    + ApplicationDBContext(dbContextOptions:DbContextOptions)
+    + ObtenirAdressesPourVilleContenant(p_partieNomVille:string) : List<Adresse>
+    + BeginTransaction() : void
+    + Commit() : void
+    + Rollback() : void
+    + <<override>> Dispose() : void
+}
+class "DbSet`1"<T> {
+}
+DbContext <|-- ApplicationDBContext
+ITransactionBD <|-- ApplicationDBContext
+ApplicationDBContext --> "Personnes<Personne>" "DbSet`1"
+ApplicationDBContext --> "Adresses<Adresse>" "DbSet`1"
+class DepotAdresseEF {
+    + DepotAdresseEF(p_dbContext:ApplicationDBContext)
+    + AjouterAdresse(p_adresse:Entite.Adresse) : void
+    + Dispose() : void
+    + Obtenir(p_id:int) : Entite.Adresse?
+    + RechercherAdresseParRequete(p_partieNomVille:string) : List<Entite.Adresse>
+    + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Entite.Adresse>
+}
+class Adresse {
+    + AdresseId : int <<get>> <<set>> = 0
+    + PersonneId : int <<get>> <<set>> = 0
+    + NoCivique : string <<get>> <<set>> = ""
+    + Odonyme : string <<get>> <<set>> = ""
+    + Ville : string <<get>> <<set>> = ""
+    + Adresse()
+    + Adresse(p_adresse:Entite.Adresse)
+    + VersEntite() : Entite.Adresse
+}
+class Personne {
+    + PersonneId : int <<get>> <<set>> = 0
+    + Nom : string <<get>> <<set>> = ""
+    + Prenom : string <<get>> <<set>> = ""
+    + AdresseActuelleId : int? <<get>> <<set>>
+    + Personne()
+    + Personne(p_entity:Entite.Personne)
+    + VersEntite() : Entite.Personne
+}
+Personne --> "AdresseActuelle" Adresse
+Personne --> "Adresses<Adresse>" "List`1"
+class Adresse {
+    + AdresseId : int <<get>> <<set>> = 0
+    + ProprietaireAdresseId : int <<get>> <<set>> = 0
+    + NumeroCivique : string <<get>> <<set>> = ""
+    + Odonyme : string <<get>> <<set>> = ""
+    + Ville : string <<get>> <<set>> = ""
+    + Adresse()
+    + Adresse(p_adresse:Entite.Adresse)
+    + VersEntite() : Entite.Adresse
+}
+class Personne {
+    + PersonneId : int <<get>> <<set>> = 0
+    + Nom : string <<get>> <<set>> = ""
+    + Prenom : string <<get>> <<set>> = ""
+    + AdresseActuelleId : int? <<get>> <<set>>
+    + Personne()
+    + Personne(p_entity:Entite.Personne)
+    + VersEntite() : Entite.Personne
+}
+Personne --> "AdresseActuelle" Adresse
+@enduml

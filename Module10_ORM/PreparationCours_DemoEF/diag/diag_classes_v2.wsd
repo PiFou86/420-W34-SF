@@ -1,0 +1,98 @@
+@startuml diag_classes
+
+' Couche Présentation
+package "Présentation" {
+  namespace ConsoleUI_Presentation {
+    interface IManipulationPersonneFactory {
+        + Creer() : ManipulationPersonnes
+    }
+    class ManipulationPersonneSQLServerFactory {
+        + Creer() : ManipulationPersonnes
+    }
+    class ManipulationPersonneOracleFactory {
+        + Creer() : ManipulationPersonnes
+    }
+    IManipulationPersonneFactory <|-- ManipulationPersonneSQLServerFactory
+    IManipulationPersonneFactory <|-- ManipulationPersonneOracleFactory
+    class GenerateurDonnees {
+        + {static} GenererPersonne(p_inclureAdresse:bool) : Personne
+        + {static} GenererAdresseAleatoire(p_idPersonne:int) : Adresse
+    }
+
+    class Program {
+        + {static} Main(args:string[]) : void
+        + {static} DemoObtenirPersonnesSansRecupererAdresse() : void
+        + {static} DemoAjoutPersonneAvecAdresse() : void
+    }
+  }
+}
+
+' Couche Affaire
+package "Affaire" {
+  namespace BusinessLayer_CasUtilisation {
+    class ManipulationPersonnes {
+        + ManipulationPersonnes(p_depotPersonne: IDepotPersonne, p_depotAdresse:IDepotAdresse, p_transaction:ITransactionBD)
+        + ObtenirPersonnes(inclureAdresse:bool) : List<Personne>
+        + AjouterPersonne(p_personne:Personne) : void
+    }
+  }
+}
+
+' Couche DAL
+package "DAL" {
+  namespace DAL.SQLServer {
+    namespace DTO {
+        class Adresse {
+            + AdresseId : int <<get>> <<set>> = 0
+            + PersonneId : int <<get>> <<set>> = 0
+        }
+        class Personne {
+            + PersonneId : int <<get>> <<set>> = 0
+            + Nom : string <<get>> <<set>> = ""
+        }
+    }
+    class DepotAdresseEF {
+        + AjouterAdresse(p_adresse:Entite.Adresse) : void
+    }
+    class DepotPersonneEF {
+        + AjouterPersonne(p_personne:Entite.Personne) : void
+    }
+    class ApplicationDBContext {
+        + ApplicationDBContext(dbContextOptions:DbContextOptions)
+    }
+  }
+}
+
+' Couche Entités à droite
+package "Entités" {
+  namespace Entite {
+    namespace BLObject {
+        class Adresse {
+            + Adresse(p_adresseId:int, p_proprietaireAdresseId:int, p_numeroCivique:string)
+        }
+
+        class Personne {
+            + Personne(p_personneId:int, p_nom:string, p_prenom:string)
+        }
+    }
+    namespace Repository {
+        interface IDepotAdresse {
+            + AjouterAdresse(p_adresse:Entite.Adresse) : void
+        }
+        interface IDepotPersonne {
+            + AjouterPersonne(p_personne:Entite.Personne) : void
+        }
+    }
+  }
+}
+
+' Relations
+ConsoleUI_Presentation.Program ..> BusinessLayer_CasUtilisation.ManipulationPersonnes : "Utilise"
+BusinessLayer_CasUtilisation.ManipulationPersonnes --> Entite.Repository.IDepotPersonne
+BusinessLayer_CasUtilisation.ManipulationPersonnes --> Entite.Repository.IDepotAdresse
+DAL.SQLServer.DepotAdresseEF --> Entite.Repository.IDepotAdresse
+DAL.SQLServer.DepotPersonneEF --> Entite.Repository.IDepotPersonne
+DAL.SQLServer.DepotAdresseEF --> DAL.SQLServer.ApplicationDBContext
+DAL.SQLServer.DepotPersonneEF --> DAL.SQLServer.ApplicationDBContext
+
+@enduml

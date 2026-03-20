@@ -1,0 +1,4 @@
+@startuml
+class "List`1"<T> {
+}
+@enduml

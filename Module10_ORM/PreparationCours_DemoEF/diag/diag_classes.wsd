@@ -1,0 +1,182 @@
+@startuml diag_classes
+
+namespace Entite {
+    namespace BLObject {
+        class Adresse {
+            + Adresse(p_adresseId:int, p_proprietaireAdresseId:int, p_numeroCivique:string, p_odonyme:string, p_ville:string)
+            + AdresseId : int <<get>> <<set>>
+            + ProprietaireAdresseId : int <<get>> <<set>>
+            + NumeroCivique : string <<get>>
+            + Odonyme : string <<get>>
+            + Ville : string <<get>>
+            + <<override>> ToString() : string
+        }
+
+        class Personne {
+            + Personne(p_personneId:int, p_nom:string, p_prenom:string, p_adresseActuelleId:int?, p_adresseActuelle:Adresse?, p_adresses:List<Adresse>?)
+            + PersonneId : int <<get>> <<set>>
+            + Nom : string <<get>>
+            + Prenom : string <<get>>
+            + AdresseActuelleId : int? <<get>>
+            + AdresseActuelle : Adresse? <<get>> <<set>>
+            + Adresses : List<Adresse> <<get>>
+            + <<override>> ToString() : string
+        }
+    }
+
+    namespace BLTransaction {
+        interface ITransactionBD {
+            + BeginTransaction() : void
+            + Commit() : void
+            + Rollback() : void
+        }
+    }
+
+    namespace Repository {
+        interface IDepotAdresse {
+            + AjouterAdresse(p_adresse:Entite.Adresse) : void
+            + Obtenir(p_id:int) : Entite.Adresse?
+            + RechercherAdresseParRequete(p_partieNomVille:string) : List<Entite.Adresse>
+            + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Entite.Adresse>
+        }
+
+        interface IDepotPersonne {
+            + AjouterPersonne(p_personne:Entite.Personne) : void
+            + MAJPersonne(p_personne:Entite.Personne) : void
+            + ObtenirPersonnes(inclureAdresse:bool) : List<Entite.Personne>
+            + ObtenirPersonne(p_personneId:int, inclureAdresse:bool) : Entite.Personne?
+        }
+    }
+}
+
+Entite.BLObject.Adresse "1" -up-- "*" Entite.BLObject.Personne : "Possède"
+Entite.Repository.IDepotAdresse ..> Entite.BLObject.Adresse : "Utilise"
+Entite.Repository.IDepotPersonne ..> Entite.BLObject.Personne : "Utilise"
+Entite.Repository.IDepotPersonne ..> Entite.BLObject.Adresse : "Utilise"
+Entite.Repository.IDepotAdresse -[hidden]up- Entite.Repository.IDepotPersonne
+System.IDisposable <|.. Entite.Repository.IDepotPersonne
+System.IDisposable <|.. Entite.Repository.IDepotAdresse
+System.IDisposable <|.. Entite.Repository.ITransactionBD
+'Entite.BLTransaction -[hidden]right- Entite.Repository
+
+namespace DAL.SQLServer {
+    namespace DTO {
+        class Adresse {
+            + AdresseId : int <<get>> <<set>> = 0
+            + PersonneId : int <<get>> <<set>> = 0
+            + NoCivique : string <<get>> <<set>> = ""
+            + Odonyme : string <<get>> <<set>> = ""
+            + Ville : string <<get>> <<set>> = ""
+            + Adresse()
+            + Adresse(p_adresse:Entite.Adresse)
+            + VersEntite() : Entite.Adresse
+        }
+        class Personne {
+            + PersonneId : int <<get>> <<set>> = 0
+            + Nom : string <<get>> <<set>> = ""
+            + Prenom : string <<get>> <<set>> = ""
+            + AdresseActuelleId : int? <<get>> <<set>>
+            + Personne()
+            + Personne(p_entity:Entite.Personne)
+            + VersEntite() : Entite.Personne
+        }
+    }
+    class DepotAdresseEF {
+        + DepotAdresseEF(p_dbContext:ApplicationDBContext)
+        + AjouterAdresse(p_adresse:Entite.Adresse) : void
+        + Dispose() : void
+        + Obtenir(p_id:int) : Entite.Adresse?
+        + RechercherAdresseParRequete(p_partieNomVille:string) : List<Entite.Adresse>
+        + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Entite.Adresse>
+    }
+    class DepotPersonneEF {
+        + DepotPersonneEF(p_dbContext:ApplicationDBContext)
+        + AjouterPersonne(p_personne:Entite.Personne) : void
+        + Dispose() : void
+        + MAJPersonne(p_personne:Entite.Personne) : void
+        + ObtenirPersonnes(inclureAdresse:bool) : List<Entite.Personne>
+        + ObtenirPersonne(p_personneId:int, inclureAdresse:bool) : Entite.Personne?
+    }
+    class DALDbContextGeneration <<static>> {
+        + {static} ObtenirApplicationDBContext() : ApplicationDBContext
+    }
+    class ApplicationDBContext {
+        + ApplicationDBContext(dbContextOptions:DbContextOptions)
+        + ObtenirAdressesPourVilleContenant(p_partieNomVille:string) : List<Adresse>
+        + BeginTransaction() : void
+        + Commit() : void
+        + Rollback() : void
+        + <<override>> Dispose() : void
+    }
+}
+
+DAL.SQLServer.DepotAdresseEF ..|> Entite.Repository.IDepotAdresse : "Implémente"
+DAL.SQLServer.DepotPersonneEF ..|> Entite.Repository.IDepotPersonne : "Implémente"
+
+DAL.SQLServer.DepotAdresseEF --> DAL.SQLServer.ApplicationDBContext
+DAL.SQLServer.DepotPersonneEF --> DAL.SQLServer.ApplicationDBContext
+
+Microsoft.EntityFrameworkCore.DbContext <|-- DAL.SQLServer.ApplicationDBContext
+Entite.BLTransaction.ITransactionBD <|.. DAL.SQLServer.ApplicationDBContext
+
+
+namespace BusinessLayer_CasUtilisation {
+    class ManipulationPersonnes {
+        + ManipulationPersonnes(p_depotPersonne: IDepotPersonne, p_depotAdresse:IDepotAdresse, p_transaction:ITransactionBD)
+        + ObtenirPersonnes(inclureAdresse:bool) : List<Personne>
+        + AjouterPersonne(p_personne:Personne) : void
+        + MAJPersonne(p_personne:Personne) : void
+        + RechercherAdresseParRequete(p_partieNomVille:string) : List<Adresse>
+        + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Adresse>
+        + Dispose() : void
+    }
+}
+
+System.IDisposable <|.. BusinessLayer_CasUtilisation.ManipulationPersonnes
+Entite.Repository.IDepotAdresse <-- BusinessLayer_CasUtilisation.ManipulationPersonnes
+Entite.Repository.IDepotPersonne <-- BusinessLayer_CasUtilisation.ManipulationPersonnes
+Entite.BLTransaction.ITransactionBD <-- BusinessLayer_CasUtilisation.ManipulationPersonnes
+
+namespace System {
+    interface IDisposable {
+        + Dispose() : void
+    }
+}
+
+namespace ConsoleUI_Presentation {
+    interface IManipulationPersonneFactory {
+        + Creer() : ManipulationPersonnes
+    }
+    class ManipulationPersonneSQLServerFactory {
+        + Creer() : ManipulationPersonnes
+    }
+    class ManipulationPersonneOracleFactory {
+        + Creer() : ManipulationPersonnes
+    }
+    IManipulationPersonneFactory <|.. ManipulationPersonneSQLServerFactory
+    IManipulationPersonneFactory <|.. ManipulationPersonneOracleFactory
+    class GenerateurDonnees {
+        + {static} GenererPersonne(p_inclureAdresse:bool) : Personne
+        + {static} GenererAdresseAleatoire(p_idPersonne:int) : Adresse
+    }
+
+    class Program {
+        + {static} Main(args:string[]) : void
+        + {static} DemoObtenirPersonnesSansRecupererAdresse() : void
+        + {static} DemoObtenirPersonnesEnRecuperantAdresses() : void
+        + {static} DemoAjoutPersonneSansAdresse() : void
+        + {static} DemoObtenirPersonnesEnRecuperantAdresses() : void
+        + {static} DemoAjoutPersonneAvecAdresse() : void
+        + {static} DemoObtenirPersonnesEnRecuperantAdresses() : void
+        + {static} DemoAjoutPersonneAvecAdresseRollback() : void
+        + {static} DemoObtenirPersonnesEnRecuperantAdresses() : void
+        + {static} DemoRechercherAdressesContenantUnMot() : void
+        + {static} DemoModificationPersonneAvecAdresse() : void
+        + {static} DemoObtenirPersonnesEnRecuperantAdresses() : void
+    }
+}
+
+ConsoleUI_Presentation -[hidden]up- BusinessLayer_CasUtilisation
+BusinessLayer_CasUtilisation -[hidden]right- Entite
+BusinessLayer_CasUtilisation -[hidden]up- DAL.SQLServer
+@enduml

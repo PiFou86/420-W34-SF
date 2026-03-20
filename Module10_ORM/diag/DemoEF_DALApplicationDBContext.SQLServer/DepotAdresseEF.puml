@@ -1,0 +1,10 @@
+@startuml
+class DepotAdresseEF {
+    + DepotAdresseEF(p_dbContext:ApplicationDBContext)
+    + AjouterAdresse(p_adresse:Entite.Adresse) : void
+    + Dispose() : void
+    + Obtenir(p_id:int) : Entite.Adresse?
+    + RechercherAdresseParRequete(p_partieNomVille:string) : List<Entite.Adresse>
+    + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Entite.Adresse>
+}
+@enduml

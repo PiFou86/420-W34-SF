@@ -1,0 +1,10 @@
+@startuml
+class DepotPersonneEF {
+    + DepotPersonneEF(p_dbContext:ApplicationDBContext)
+    + AjouterPersonne(p_personne:Entite.Personne) : void
+    + Dispose() : void
+    + MAJPersonne(p_personne:Entite.Personne) : void
+    + ObtenirPersonnes(inclureAdresse:bool) : List<Entite.Personne>
+    + ObtenirPersonne(p_personneId:int, inclureAdresse:bool) : Entite.Personne?
+}
+@enduml

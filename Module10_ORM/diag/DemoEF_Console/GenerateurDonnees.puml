@@ -1,0 +1,6 @@
+@startuml
+class GenerateurDonnees {
+    + {static} GenererPersonne(p_inclureAdresse:bool) : Personne
+    + {static} GenererAdresseAleatoire(p_idPersonne:int) : Adresse
+}
+@enduml

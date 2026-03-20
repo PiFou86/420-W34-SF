@@ -1,0 +1,9 @@
+@startuml
+class ConsoleExtensions <<static>> {
+    + {static} DumpException(exception:Exception, includeFirsStacktrace:bool) : void
+    + {static} ChangeForegroundColorTo(color:ConsoleColor) : void
+    + {static} ChangeForegroundToPreviousColor() : void
+    + {static} WaitForEnterKey() : void
+    + {static} EntitleMessage(message:string?, foregroundColor:ConsoleColor, backgroundColor:ConsoleColor) : void
+}
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+class Adresse {
+    + Adresse(p_adresseId:int, p_proprietaireAdresseId:int, p_numeroCivique:string, p_odonyme:string, p_ville:string)
+    + AdresseId : int <<get>> <<set>>
+    + ProprietaireAdresseId : int <<get>> <<set>>
+    + NumeroCivique : string <<get>>
+    + Odonyme : string <<get>>
+    + Ville : string <<get>>
+    + <<override>> ToString() : string
+}
+@enduml

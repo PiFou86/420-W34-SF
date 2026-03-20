@@ -1,0 +1,6 @@
+@startuml
+interface IDepotAdresse {
+    + RechercherAdresseProcedureStockee(p_partieNomVille:string) : List<Adresse>
+}
+IDisposable <|-- IDepotAdresse
+@enduml

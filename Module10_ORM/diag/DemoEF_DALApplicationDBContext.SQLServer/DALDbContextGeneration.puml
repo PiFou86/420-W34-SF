@@ -1,0 +1,5 @@
+@startuml
+class DALDbContextGeneration <<static>> {
+    + {static} ObtenirApplicationDBContext() : ApplicationDBContext
+}
+@enduml
