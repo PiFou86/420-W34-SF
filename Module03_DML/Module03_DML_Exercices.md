@@ -88,7 +88,7 @@ Voici une extraction des tables contenues dans le schéma "Warehouse" avec leque
 - Écrivez les requêtes suivantes :
  1. Affichez les commandes non facturées
  2. Comptez le nombre de commandes non facturées
- 3. Prenez l'identifiant d'une de ces commandes et affichez le détail de la commande avec le total avant taxes et après taxes
+ 3. Prenez l'identifiant d'une de ces commandes et affichez le détail de la commande avec le total par ligne avant taxes et après taxes (Vous pouvez ajouter le total pour cela, regardez : [ROLLUP](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver17))
  4. Affichez le chiffre d'affaire non facturé
  5. Affichez le chiffre d'affaire non facturé par année
  6. Affichez le chiffre d'affaire non facturé par année et par mois
