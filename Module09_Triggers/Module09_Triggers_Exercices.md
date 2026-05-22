@@ -20,7 +20,7 @@
 
 - Créez la table `Note` avec les colonnes suivantes :
   - `NoteId` (int, PK, Identity)
-  - `Note` (decimal : trois chiffres avant la virgule et deux chiffres après la virgule)
+  - `Note` (decimal : deux chiffres avant la virgule et deux chiffres après la virgule)
   - `Appreciation` (nvarchar(50))
 - Créez un trigger qui affecte la valeur de la colonne `Appreciation` en fonction de la colonne `Note` au moment de l'insertion :
   - `Note` entre 0 et 10 : `Appreciation` = `Insuffisant`
