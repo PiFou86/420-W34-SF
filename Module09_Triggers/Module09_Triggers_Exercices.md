@@ -3,8 +3,13 @@
 ## Exercice 1 - Historisation
 
 - Créez une base de données `M09_Trigger`
-- Créez la table `Personne` et `PersonneHistorique` avec les colonnes suivantes :
+- Créez la table `Personne` avec les colonnes suivantes :
   - `PersonneId` (int, PK, Identity)
+  - `Prenom` (nvarchar(50))
+  - `Nom` (nvarchar(50))
+  - `DateNaissance` (date)
+- Créez la table `PersonneHistorique` avec les colonnes suivantes :
+  - `PersonneId` (int, PK)
   - `Prenom` (nvarchar(50))
   - `Nom` (nvarchar(50))
   - `DateNaissance` (date)
