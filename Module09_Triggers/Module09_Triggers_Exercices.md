@@ -18,11 +18,11 @@
 
 ## Exercice 2 - Appréciation
 
-- Créez la table `note` avec les colonnes suivantes :
+- Créez la table `Note` avec les colonnes suivantes :
   - `NoteId` (int, PK, Identity)
   - `Note` (decimal : trois chiffres avant la virgule et deux chiffres après la virgule)
   - `Appreciation` (nvarchar(50))
-- Créez un trigger qui met à jour la colonne `Appreciation` en fonction de la colonne `Note` au moment de l'insertion :
+- Créez un trigger qui affecte la valeur de la colonne `Appreciation` en fonction de la colonne `Note` au moment de l'insertion :
   - `Note` entre 0 et 10 : `Appreciation` = `Insuffisant`
   - `Note` entre 10 et 12 : `Appreciation` = `Passable`
   - `Note` entre 12 et 14 : `Appreciation` = `Bien`
