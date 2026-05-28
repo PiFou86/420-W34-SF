@@ -64,7 +64,7 @@ Grandes étapes :
 - Codez l'ajout d'une personne et d'un chat à adopter
 - Codez la fonctionnalité d'adoption d'un chat
 
-## Exercice 2 - Gestion de location de vidéos
+## Exercice 2 - Gestion de location de vidéos (Optionnel)
 
 Vous avez été mandaté pour développer une application de location de vidéos. Les personnes peuvent louer plusieurs vidéos, mais chaque vidéo ne peut être louée qu'une seule fois par un seul utilisateur (Nous n'avons qu'une licence d'utilisation par vidéo). Une vidéo ne peut être louée que par une personne vidéo à la fois. Vous n'avez pas à gérer les historiques. Une vidéo est louée pour une durée de 7 jours. Une personne ne peut louer que 5 vidéos maximum en même temps.
 
