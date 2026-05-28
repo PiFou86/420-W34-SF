@@ -82,7 +82,7 @@ afffiche 339094.71
 - Écrivez la procédure "ChangerMotDePasse" qui prend en paramètre un nom d'utilisateur, l'ancien et le nouveau mot de passe et qui change le mot de passe de l'utilisateur si l'ancien mot de passe est correct :
   - Table `[Application].[People]`
   - Valider l'ancien mot de passe : comparer le mot de passe hashé avec le résultat de l'appel de la fonction `HASHBYTES(N'SHA2_256', @OldPassword + FullName)`
-  - Met à jour le mot de passe, c'est à dire le mot de passe hashé avec la valeur `HASHBYTES(N'SHA2_256', @NewPassword + FullName) WHERE Username = @Username`
+  - Met à jour le mot de passe, c'est à dire le mot de passe hashé avec la valeur `HASHBYTES(N'SHA2_256', @NewPassword + FullName)`
   - Met à jour le champ ValidFrom pour la date du jour
   - Met à jour la possibilité de se connecter à la valeur 1
   - Interdit de modifier le mot de passe de l'utilisateur d'indentifiant `1`
