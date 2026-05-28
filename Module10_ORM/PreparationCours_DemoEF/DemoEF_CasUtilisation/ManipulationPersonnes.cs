@@ -69,7 +69,7 @@ public class ManipulationPersonnes : IDisposable
             ConsoleExtensions.DumpException(ex);
 
             // Compensation en cas d'erreur : rollback
-            this.m_transaction.Rollback();
+            this.m_transaction?.Rollback();
 
             // On fait remonter l'erreur : normalement on encapsulerait l'erreur dans une erreur plus propre pour les couches plus hautes
             throw;

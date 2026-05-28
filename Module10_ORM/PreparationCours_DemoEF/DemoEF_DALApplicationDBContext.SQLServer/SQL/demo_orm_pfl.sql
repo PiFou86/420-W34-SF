@@ -30,8 +30,8 @@ BEGIN
 		Prenom VARCHAR(30) NOT NULL
 	);
 
-	INSERT INTO Personne(Nom, Prenom) VALUES ('Vière', 'Marie');
-	INSERT INTO Personne(Nom, Prenom) VALUES ('Éparbal', 'Gille');
+	INSERT INTO Personne(Nom, Prenom) VALUES ('ViÃ¨re', 'Marie');
+	INSERT INTO Personne(Nom, Prenom) VALUES ('Ã‰parbal', 'Gille');
 	INSERT INTO Personne(Nom, Prenom) VALUES ('Terrieur', 'Alex');
 
 	CREATE TABLE PersonneHistorique (
@@ -62,9 +62,9 @@ BEGIN
 	ALTER TABLE Personne
 	ADD CONSTRAINT FK_Personne_Adresse_Actuelle FOREIGN KEY (AdresseActuelleId) REFERENCES Adresse(AdresseId);
 
-	INSERT INTO Adresse(PersonneId, NoCivique, Odonyme, Ville) VALUES (1, '123', 'Chat', 'Lévis');
-	INSERT INTO Adresse(PersonneId, NoCivique, Odonyme, Ville) VALUES (1, '123', 'Chat', 'Québec');
-	INSERT INTO Adresse(PersonneId, NoCivique, Odonyme, Ville) VALUES (1, '123', 'Chat', 'Montréal');
+	INSERT INTO Adresse(PersonneId, NoCivique, Odonyme, Ville) VALUES (1, '123', 'Chat', 'LÃ©vis');
+	INSERT INTO Adresse(PersonneId, NoCivique, Odonyme, Ville) VALUES (1, '123', 'Chat', 'QuÃ©bec');
+	INSERT INTO Adresse(PersonneId, NoCivique, Odonyme, Ville) VALUES (1, '123', 'Chat', 'MontrÃ©al');
 
 	UPDATE Personne SET AdresseActuelleId = 1 WHERE PERSONNEID = 1;
 END;
@@ -92,7 +92,7 @@ AS
 GO
 
 
-EXECUTE Obtenir_Adresses_Ville_Contenant 'é';
+EXECUTE Obtenir_Adresses_Ville_Contenant 'ï¿½';
 
 
 SELECT * FROM Personne;

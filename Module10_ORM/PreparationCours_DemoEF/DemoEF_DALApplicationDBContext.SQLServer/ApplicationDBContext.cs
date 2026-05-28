@@ -24,8 +24,10 @@ namespace DemoEF_DALApplicationDBContext.SQLServer
         }
 
         // Éviter les problèmes de null : https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types
-        public DbSet<Personne> Personne => Set<Personne>();
-        public DbSet<Adresse> Adresse => Set<Adresse>();
+        // Utilisation de la nouvelle syntaxe C# 8 pour les propriétés de navigation : https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types#navigation-properties
+        // et définitions : https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties#required-properties
+        public required DbSet<Personne> Personne {get; set; }
+        public required DbSet<Adresse> Adresse {get; set; }
 
         public List<Adresse> ObtenirAdressesPourVilleContenant(string p_partieNomVille)
         {
@@ -41,6 +43,7 @@ namespace DemoEF_DALApplicationDBContext.SQLServer
             this.m_transaction = this.Database.BeginTransaction();
         }
 
+        // Non obligatoire, on le fera seulement si on veut des transactions explicites dans les méthodes du repository
         public void Commit()
         {
             if (this.m_transaction is null)

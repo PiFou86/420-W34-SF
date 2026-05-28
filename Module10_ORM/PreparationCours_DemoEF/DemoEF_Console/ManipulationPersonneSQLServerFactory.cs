@@ -2,6 +2,7 @@ using DemoEF_DALApplicationDBContext.SQLServer;
 using DemoEF_Entite;
 using DemoEF_CasUtilisation;
 
+// Non nécessaire avec une approche DI
 public class ManipulationPersonneSQLServerFactory : IManipulationPersonneFactory
 {
     public ManipulationPersonnes Creer()
