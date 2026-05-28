@@ -3,8 +3,13 @@
 ## Exercice 1 - Historisation
 
 - Créez une base de données `M09_Trigger`
-- Créez la table `Personne` et `PersonneHistorique` avec les colonnes suivantes :
+- Créez la table `Personne` avec les colonnes suivantes :
   - `PersonneId` (int, PK, Identity)
+  - `Prenom` (nvarchar(50))
+  - `Nom` (nvarchar(50))
+  - `DateNaissance` (date)
+- Créez la table `PersonneHistorique` avec les colonnes suivantes :
+  - `PersonneId` (int, PK)
   - `Prenom` (nvarchar(50))
   - `Nom` (nvarchar(50))
   - `DateNaissance` (date)
@@ -13,17 +18,17 @@
 
 ## Exercice 2 - Appréciation
 
-- Créez la table `note` avec les colonnes suivantes :
+- Créez la table `Note` avec les colonnes suivantes :
   - `NoteId` (int, PK, Identity)
-  - `Note` (decimal : trois chiffres avant la virgule et deux chiffres après la virgule)
+  - `Note` (decimal : deux chiffres avant la virgule et deux chiffres après la virgule)
   - `Appreciation` (nvarchar(50))
-- Créez un trigger qui met à jour la colonne `Appreciation` en fonction de la colonne `Note` au moment de l'insertion :
+- Créez un trigger qui affecte la valeur de la colonne `Appreciation` en fonction de la colonne `Note` au moment de l'insertion :
   - `Note` entre 0 et 10 : `Appreciation` = `Insuffisant`
   - `Note` entre 10 et 12 : `Appreciation` = `Passable`
   - `Note` entre 12 et 14 : `Appreciation` = `Bien`
   - `Note` entre 14 et 20 : `Appreciation` = `Très bien`
 - Testez votre trigger en insérant des notes dans la table `note`
-- Créez un trigger qui fait la mise à jour de la colonne `Appreciation` à chaque mise à jour
+- Créez un nouveau trigger qui fait la mise à jour de la colonne `Appreciation` à chaque mise à jour
 - Est-ce que vous pouvez faire en sorte que ce trigger ne fasse pas la mise à jour du champ que si la colonne `Note` est modifiée ? (indice : [`UPDATE`](https://learn.microsoft.com/en-us/sql/t-sql/functions/update-trigger-functions-transact-sql))
 - Testez votre trigger en insérant des notes dans la table `note`
 - Est-ce que l'utilisation d'un trigger est la meilleure solution pour mettre à jour la colonne `Appreciation` ? Pourquoi ? ("Quand on a un marteau, tout devient un clou")
