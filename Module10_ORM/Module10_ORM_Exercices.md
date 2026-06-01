@@ -55,7 +55,6 @@ Grandes étapes :
       - `Personne` : DTO. N'incluez pas la navigation vers la liste des chats adoptés (vous pourrez le faire en option)
       - `Chat` : DTO. Incluez la navigation vers le propriétaire si adopté
       - `ApplicationDBContext` : contexte de base de données
-      - `DALDbContextGeneration` : classe qui génère le contexte de base de données. Adaptez la classe fournie en exemple dans le cours
       - `DepotPersonne` : dépôt de personnes implanté avec EntityFramework
       - `DepotChat` : dépôt de chats implanté avec EntityFramework
 - Débutez par l'affichage des personnes sans aller chercher les chats adoptés. Pour cela, vous devez coder les fonctions nécessaires dans les classes IDepotPersonne, PersonneBL, DepotPersonne et PersonneUI
